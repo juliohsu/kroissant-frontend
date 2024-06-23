@@ -265,7 +265,7 @@ const Reserva: React.FC = () => {
         )}
 
         <TextField
-          label="Nome"
+          label="Nome Completo"
           name="name"
           value={formData.name}
           onChange={handleChange}
@@ -273,7 +273,7 @@ const Reserva: React.FC = () => {
           margin="normal"
         />
         <TextField
-          label="WhatsApp"
+          label="Número de WhatsApp"
           name="phone"
           value={formData.phone}
           onChange={handleChange}
@@ -281,7 +281,7 @@ const Reserva: React.FC = () => {
           margin="normal"
         />
         <TextField
-          label="Número de Pessoas"
+          label="Quantidade de Pessoas"
           name="numberOfPeople"
           value={formData.numberOfPeople}
           onChange={handleChange}
@@ -300,7 +300,7 @@ const Reserva: React.FC = () => {
           InputLabelProps={{ shrink: true }}
         />
         <TextField
-          label="Hora"
+          label="Horário"
           name="time"
           value={formData.time}
           onChange={handleChange}
