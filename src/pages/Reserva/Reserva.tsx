@@ -132,7 +132,7 @@ const Reserva: React.FC = () => {
       ?.name.toUpperCase()}\n\n*Mesa Posta*: ${
       decors.find((decor) => decor.id === selectedDecor)?.name.toUpperCase() ||
       "N/A"
-    }\n\n*Bolo*: ${
+    }\n\n*Bolo Chiffon*: ${
       cakes.find((cake) => cake.id === selectedCake)?.name.toUpperCase() ||
       "N/A"
     }\n*Tamanho*: ${cakeSize.toUpperCase() || "N/A"}`;
