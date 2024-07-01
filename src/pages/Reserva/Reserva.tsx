@@ -311,12 +311,17 @@ const Reserva: React.FC = () => {
         />
         <Button
           variant="contained"
-          color="primary"
+          color="secondary"
           onClick={handleSubmit}
           sx={{ marginTop: "20px", width: "100%", maxWidth: "600px" }}
         >
           Enviar Reserva
         </Button>
+        <Typography variant="body1" gutterBottom>
+          *Depois de clicar em 'ENVIAR RESERVA', você será redirecionado ao
+          WhatsApp para finalizar. Envie a mensagem automática ao gestor
+          indicado.*
+        </Typography>
       </Box>
     </CenteredBox>
   );
