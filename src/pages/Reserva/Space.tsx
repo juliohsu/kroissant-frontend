@@ -14,7 +14,7 @@ const Space: React.FC<SpaceProps> = ({ id, name, image, selected, onClick }) => 
   <Box sx={{ margin: "0 10px" }}>
     <Box
       sx={{
-        height: "150px",
+        height: "150px", 
         width: "150px",
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",

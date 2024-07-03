@@ -165,7 +165,7 @@ const Reserva: React.FC = () => {
       </Typography>
       <ScrollableContainer
         id="spaces-container"
-        scrollable={spaces.length > 4}
+        scrollable={spaces.length > 2}
         onScroll={() => {}}
       >
         {spaces.map((space) => (
@@ -191,7 +191,7 @@ const Reserva: React.FC = () => {
       </Typography>
       <ScrollableContainer
         id="decors-container"
-        scrollable={decors.length > 4}
+        scrollable={decors.length > 2}
         onScroll={() => {}}
       >
         {decors.map((decor) => (
@@ -217,7 +217,7 @@ const Reserva: React.FC = () => {
       </Typography>
       <ScrollableContainer
         id="cakes-container"
-        scrollable={cakes.length > 4}
+        scrollable={cakes.length > 2}
         onScroll={() => {}}
       >
         {cakes.map((cake) => (
@@ -319,8 +319,7 @@ const Reserva: React.FC = () => {
         </Button>
         <Typography variant="body1" gutterBottom>
           *Depois de clicar em 'ENVIAR RESERVA', você será redirecionado ao
-          WhatsApp para finalizar. Envie a mensagem automática ao gestor
-          indicado.*
+          WhatsApp do nosso gestor de reservas. Envie a mensagem automática ao gestor.*
         </Typography>
       </Box>
     </CenteredBox>

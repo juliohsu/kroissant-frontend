@@ -1,4 +1,3 @@
-// ScrollableContainer.tsx
 import React, { useEffect } from "react";
 import { Box, IconButton } from "@mui/material";
 import { styled } from "@mui/material/styles";
@@ -20,8 +19,8 @@ const HorizontalScrollContainer = styled(Box)({
 
 const ScrollIconsContainer = styled(Box)({
   position: "absolute",
-  top: 0,
-  bottom: 0,
+  top: "50%",
+  transform: "translateY(-50%)",
   display: "flex",
   alignItems: "center",
   zIndex: 1,
@@ -35,7 +34,7 @@ const ScrollIcon = styled(IconButton)({
   },
   zIndex: 1,
   pointerEvents: "all",
-  marginRight: "10px",
+  margin: "0 10px",
 });
 
 interface ScrollableContainerProps {
@@ -61,30 +60,36 @@ const ScrollableContainer: React.FC<ScrollableContainerProps> = ({
     }
   }, [id, onScroll]);
 
+  const scrollLeft = () => {
+    const container = document.getElementById(id);
+    if (container) container.scrollLeft -= 100;
+  };
+
+  const scrollRight = () => {
+    const container = document.getElementById(id);
+    if (container) container.scrollLeft += 100;
+  };
+
   return (
-    <HorizontalScrollContainer id={id}>
-      {children}
+    <Box position="relative" width="100%">
+      <HorizontalScrollContainer id={id}>
+        {children}
+      </HorizontalScrollContainer>
       {scrollable && (
-        <ScrollIconsContainer sx={{ right: 0 }}>
-          <ScrollIcon
-            onClick={() => {
-              const container = document.getElementById(id);
-              if (container) container.scrollLeft += 100;
-            }}
-          >
-            <KeyboardArrowRightIcon />
-          </ScrollIcon>
-          <ScrollIcon
-            onClick={() => {
-              const container = document.getElementById(id);
-              if (container) container.scrollLeft -= 100;
-            }}
-          >
-            <KeyboardArrowLeftIcon />
-          </ScrollIcon>
-        </ScrollIconsContainer>
+        <>
+          <ScrollIconsContainer sx={{ left: 0 }}>
+            <ScrollIcon onClick={scrollLeft}>
+              <KeyboardArrowLeftIcon />
+            </ScrollIcon>
+          </ScrollIconsContainer>
+          <ScrollIconsContainer sx={{ right: 0 }}>
+            <ScrollIcon onClick={scrollRight}>
+              <KeyboardArrowRightIcon />
+            </ScrollIcon>
+          </ScrollIconsContainer>
+        </>
       )}
-    </HorizontalScrollContainer>
+    </Box>
   );
 };
 
