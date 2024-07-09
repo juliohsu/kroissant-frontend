@@ -11,7 +11,7 @@ import logoImage from './assets/kroissant-logo.png'; // Update the path to your 
 const App: React.FC = () => {
   const handleEncomendaRedirect = () => {
     const message = "Olá, tudo bem? Quero fazer uma encomenda para...";
-    const whatsappUrl = `https://wa.me/558386182324?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/558321480945?text=${encodeURIComponent(message)}`;
     window.location.href = whatsappUrl;
   };
 
@@ -20,7 +20,7 @@ const App: React.FC = () => {
   };
 
   const handleContatoRedirect = () => {
-    window.location.href = "https://wa.me/558321480945";
+    window.location.href = "https://wa.me/558386182324";
   };
 
   return (
@@ -49,7 +49,7 @@ const App: React.FC = () => {
                 Encomenda
               </Button>
               <Button color="inherit" onClick={handleContatoRedirect}>
-                Contato
+                Suporte
               </Button>
             </Box>
           </Toolbar>
@@ -61,7 +61,7 @@ const App: React.FC = () => {
             {/* Use a custom function to redirect to external URL */}
             <Route path="/encomenda" element={<></>} />
             {/* Use a custom function to redirect to external WhatsApp */}
-            <Route path="/contato" element={<></>} />
+            <Route path="/suporte" element={<></>} />
           </Routes>
         </Box>
       </Router>
