@@ -11,16 +11,16 @@ import logoImage from './assets/kroissant-logo.png'; // Update the path to your 
 const App: React.FC = () => {
   const handleEncomendaRedirect = () => {
     const message = "Olá, tudo bem? Quero fazer uma encomenda para...";
-    const whatsappUrl = `https://wa.me/558321480945?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/558386182324?text=${encodeURIComponent(message)}`;
     window.location.href = whatsappUrl;
   };
 
   const handleDeliveryRedirect = () => {
-    window.location.href = "https://kroissant.alloy.al/menu/pedidos";
+    window.location.href = "https://www.ifood.com.br/delivery/campina-grande-pb/kroissant-jardim-tavares/a8a0c010-25f3-4571-9c38-8e92feda4234?utm_medium=share";
   };
 
   const handleContatoRedirect = () => {
-    window.location.href = "https://wa.me/558386182324";
+    window.location.href = "https://wa.me/558321480945";
   };
 
   return (
@@ -43,7 +43,7 @@ const App: React.FC = () => {
                 Reserva
               </Button>
               <Button color="inherit" onClick={handleDeliveryRedirect}>
-                Menu
+                Delivery
               </Button>
               <Button color="inherit" onClick={handleEncomendaRedirect}>
                 Encomenda
