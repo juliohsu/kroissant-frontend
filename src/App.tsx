@@ -1,59 +1,24 @@
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import { AppBar, Toolbar, Button, CssBaseline, Box } from "@mui/material";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {  CssBaseline, Box } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
+import theme from "./theme"; // Import the custom theme
+
+import NavBar from "./NavBar";
 
 import Inicio from "./pages/Inicio/Inicio";
 import Reserva from "./pages/Reserva/Reserva";
 
-import theme from "./theme"; // Import the custom theme
-import logoImage from './assets/kroissant-logo.png'; // Update the path to your logo image
+import ListaCompra from "./pages/ListaCompra/ListaCompra";
+import PedidoCompra from "./pages/ListaCompra/subpages/PedidoCompra/PedidoCompra";
+import ProdutoBib from "./pages/ListaCompra/subpages/BibCompra/ProdutoBib/ProdutoBib";
 
 const App: React.FC = () => {
-  const handleEncomendaRedirect = () => {
-    const message = "Olá, tudo bem? Quero fazer uma encomenda para...";
-    const whatsappUrl = `https://wa.me/558386182324?text=${encodeURIComponent(message)}`;
-    window.location.href = whatsappUrl;
-  };
-
-  const handleDeliveryRedirect = () => {
-    window.location.href = "https://www.ifood.com.br/delivery/campina-grande-pb/kroissant-jardim-tavares/a8a0c010-25f3-4571-9c38-8e92feda4234?utm_medium=share";
-  };
-
-  const handleContatoRedirect = () => {
-    window.location.href = "https://wa.me/558321480945";
-  };
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
-        <AppBar position="sticky" sx={{ zIndex: theme.zIndex.drawer + 1 }}>
-          <Toolbar sx={{ flexDirection: "column" }}>
-            {/* Logo */}
-            <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", py: 2 }}>
-              <img src={logoImage} alt="Logo" style={{ height: 60 }} />
-            </Box>
-
-            {/* Navigation Buttons */}
-            <Box sx={{ display: "flex", justifyContent: "center" }}>
-              <Button color="inherit" component={Link} to="/">
-                Inicio
-              </Button>
-              <Button color="inherit" component={Link} to="/reserva">
-                Reserva
-              </Button>
-              <Button color="inherit" onClick={handleDeliveryRedirect}>
-                Delivery
-              </Button>
-              <Button color="inherit" onClick={handleEncomendaRedirect}>
-                Encomenda
-              </Button>
-              <Button color="inherit" onClick={handleContatoRedirect}>
-                Suporte
-              </Button>
-            </Box>
-          </Toolbar>
-        </AppBar>
+        <NavBar />
         <Box>
           <Routes>
             <Route path="/" element={<Inicio />} />
@@ -62,6 +27,9 @@ const App: React.FC = () => {
             <Route path="/encomenda" element={<></>} />
             {/* Use a custom function to redirect to external WhatsApp */}
             <Route path="/suporte" element={<></>} />
+            <Route path="/lista-compra" element={<ListaCompra />} />
+            <Route path="/lista-compra/pedido-compra" element={<PedidoCompra />} />
+            <Route path="/lista-compra/biblioteca-produto" element={<ProdutoBib />} />
           </Routes>
         </Box>
       </Router>
