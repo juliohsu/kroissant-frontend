@@ -36,13 +36,38 @@ function ProdutoBibEdit({ id, onCleanTextField }: ProdutoDialogProps) {
 
         try {
 
-            const produtoServerResult = await fetch(COMPRA_ROUTES.PRODUTO(`/filter?id=${id}`));
+            const produtoServerResult = await fetch(COMPRA_ROUTES.PRODUTO(`/filter?id=${id}`), {
+                method: `GET`,
+                headers: new Headers({
+                  "ngrok-skip-browser-warning": "69420",
+                }) 
+            });
             const produtoData = await produtoServerResult.json();
 
-            const categoriaServerResult = await fetch(COMPRA_ROUTES.CATEGORIA());
-            const marcaServerResult = await fetch(COMPRA_ROUTES.MARCA());
-            const unidadeServerResult = await fetch(COMPRA_ROUTES.UNIDADE());
-            const fornecedorServerResult = await fetch(COMPRA_ROUTES.FORNECEDOR());
+            const categoriaServerResult = await fetch(COMPRA_ROUTES.CATEGORIA(), {
+                method: `GET`,
+                headers: new Headers({
+                  "ngrok-skip-browser-warning": "69420",
+                }) 
+            });
+            const marcaServerResult = await fetch(COMPRA_ROUTES.MARCA(), {
+                method: `GET`,
+                headers: new Headers({
+                  "ngrok-skip-browser-warning": "69420",
+                }) 
+            });
+            const unidadeServerResult = await fetch(COMPRA_ROUTES.UNIDADE(), {
+                method: `GET`,
+                headers: new Headers({
+                  "ngrok-skip-browser-warning": "69420",
+                }) 
+            });
+            const fornecedorServerResult = await fetch(COMPRA_ROUTES.FORNECEDOR(), {
+                method: `GET`,
+                headers: new Headers({
+                  "ngrok-skip-browser-warning": "69420",
+                }) 
+            });
 
             if (produtoData && Array.isArray(produtoData.listProduto)) {
                 setProduto(produtoData);
@@ -67,8 +92,11 @@ function ProdutoBibEdit({ id, onCleanTextField }: ProdutoDialogProps) {
             const response = await fetch(
                 COMPRA_ROUTES.PRODUTO('/update'), 
                 { 
-                    method: 'PATCH' ,
-                    headers: { 'Content-Type': 'application/json' },
+                    method: 'PATCH',
+                    headers: new Headers({
+                        'Content-Type': 'application/json',
+                      "ngrok-skip-browser-warning": "69420",
+                    }) ,
                     body: JSON.stringify({
                         prodId: produtoData.id,
                         prodNome: produtoData.nome,

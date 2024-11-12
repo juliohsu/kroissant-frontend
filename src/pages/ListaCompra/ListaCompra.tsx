@@ -54,9 +54,12 @@ function ListaCompra() {
     const fetchItemCompra = async () => {
         try {
             const dateServer = selectedDate ? selectedDate.format('DD/MM/YY') : dayjs().format('DD/MM/YY');
-            const response = await fetch(COMPRA_ROUTES.ITEMCOMPRA(`?date=${dateServer}`));
+            const response = await fetch(COMPRA_ROUTES.ITEMCOMPRA(`?date=${dateServer}`), {
+                method: `GET`,
+                headers: new Headers({
+                  "ngrok-skip-browser-warning": "69420",
+                }) });
             const res_json = await response.json();
-            console.log(res_json);
             setItensCompra(res_json);
         } catch(err) {
             console.error(`Erro de conexão ao servidor:\n\n${err}`);
