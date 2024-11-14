@@ -31,7 +31,7 @@ function ProdutoBibDelete({id, onCleanTextField}: ProdutoDialogProps) {
             const response = await fetch(COMPRA_ROUTES.PRODUTO(`/delete?prodId=${prodId}`), { 
                 method: 'DELETE',
                 headers: new Headers({
-                  "ngrok-skip-browser-warning": "69420",
+                    "bypass-tunnel-reminder": "69420",
                 }) 
              });
             

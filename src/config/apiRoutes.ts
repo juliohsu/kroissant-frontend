@@ -1,4 +1,4 @@
-const BASE_URL = 'https://2454-191-22-26-185.ngrok-free.app';
+const BASE_URL = 'https://happy-camels-count.loca.lt';
 
 export const COMPRA_ROUTES = {
     SETOR: () => `${BASE_URL}/setor`,

@@ -57,7 +57,7 @@ function ListaCompra() {
             const response = await fetch(COMPRA_ROUTES.ITEMCOMPRA(`?date=${dateServer}`), {
                 method: `GET`,
                 headers: new Headers({
-                  "ngrok-skip-browser-warning": "69420",
+                  "bypass-tunnel-reminder": "69420",
                 }) });
             const res_json = await response.json();
             setItensCompra(res_json);
