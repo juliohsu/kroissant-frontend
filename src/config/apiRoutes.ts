@@ -10,4 +10,4 @@ export const COMPRA_ROUTES = {
     MARCA: () => `${BASE_URL}/marca`,
     UNIDADE: () => `${BASE_URL}/unidade`,
     FORNECEDOR: () => `${BASE_URL}/fornecedor`,
-}
+} 
