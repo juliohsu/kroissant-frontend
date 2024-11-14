@@ -1,4 +1,4 @@
-const BASE_URL = 'https://eleven-mice-drop.loca.lt';
+const BASE_URL = 'https://sharp-rockets-rule.loca.lt';
 
 export const COMPRA_ROUTES = {
     SETOR: () => `${BASE_URL}/setor`,
