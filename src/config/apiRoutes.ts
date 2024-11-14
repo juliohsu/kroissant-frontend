@@ -1,4 +1,4 @@
-const BASE_URL = 'https://happy-camels-count.loca.lt';
+const BASE_URL = 'https://sharp-dryers-open.loca.lt';
 
 export const COMPRA_ROUTES = {
     SETOR: () => `${BASE_URL}/setor`,
