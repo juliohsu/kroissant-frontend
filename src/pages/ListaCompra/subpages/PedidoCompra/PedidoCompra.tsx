@@ -143,7 +143,10 @@ function PedidoCompra() {
     const fetchSetores = async () => {
         try {
             const response = await fetch(
-                COMPRA_ROUTES.SETOR(), { method: 'GET' }
+                COMPRA_ROUTES.SETOR(), { method: 'GET',
+                    headers: new Headers({
+                      "ngrok-skip-browser-warning": "69420",
+                    })  }
             );
             const responseJson = await response.json();
             setSetores(responseJson);
@@ -155,7 +158,10 @@ function PedidoCompra() {
     const fetchSecoes = async () => {
         try {
             const response = await fetch(
-                COMPRA_ROUTES.SECAO(), { method: 'GET' }
+                COMPRA_ROUTES.SECAO(), { method: 'GET',
+                    headers: new Headers({
+                      "ngrok-skip-browser-warning": "69420",
+                    })  }
             );
             const responseJson = await response.json();
             setSecoes(responseJson);
@@ -167,7 +173,10 @@ function PedidoCompra() {
     const fetchCategorias = async () => {
         try {
             const response = await fetch(
-                COMPRA_ROUTES.CATEGORIA(), { method: 'GET' }
+                COMPRA_ROUTES.CATEGORIA(), { method: 'GET',
+                    headers: new Headers({
+                      "ngrok-skip-browser-warning": "69420",
+                    })  }
             );
             const responseJson = await response.json();
             setCategorias(responseJson);
@@ -178,23 +187,43 @@ function PedidoCompra() {
 
     const fetchItensProduto = async () => {
         try {
-            const response = await fetch(
-                COMPRA_ROUTES.ITEMPRODUTO(''), 
-                { method: 'GET' }
-            );
-            const responseJson = await response.json();
-            console.log(responseJson);
-            setItensProduto(responseJson);
-            const newItensBoxInEdition: ItemProduto[] = itensProduto.listItemProduto.filter(item => 
-                item.itemId !== 0 && !itensBoxInEdition.listItemProduto.some(item2 => item2.itemId === item.itemId)
-            );
-            if (newItensBoxInEdition.length > 0) {
-                setItensBoxInEdition({ listItemProduto: [...itensBoxInEdition.listItemProduto, ...newItensBoxInEdition] });
+    
+            // Fetch the data
+            const response = await fetch(COMPRA_ROUTES.ITEMPRODUTO(''), { 
+                method: 'GET',
+                headers: new Headers({
+                  "ngrok-skip-browser-warning": "69420",
+                }) 
+            });
+    
+            // Log the response headers and status
+            const contentType = response.headers.get('Content-Type');
+    
+            // Check if the response is JSON
+            if (contentType && contentType.includes('application/json')) {
+                const responseJson = await response.json();
+    
+                // Process your data
+                setItensProduto(responseJson);
+    
+                const newItensBoxInEdition: ItemProduto[] = itensProduto.listItemProduto.filter(item => 
+                    item.itemId !== 0 && !itensBoxInEdition.listItemProduto.some(item2 => item2.itemId === item.itemId)
+                );
+    
+                if (newItensBoxInEdition.length > 0) {
+                    setItensBoxInEdition({ listItemProduto: [...itensBoxInEdition.listItemProduto, ...newItensBoxInEdition] });
+                }
+            } else {
+                // If it's not JSON, log the response body as text
+                const errorText = await response.text();
+                console.error('Server returned non-JSON response:', errorText);
             }
+    
         } catch (err) {
-            console.error(`Erro de conexão ao servidor:\n\n${err}`);
+            console.error(`Connection error:\n\n${err}`);
         }
     };
+    
 
     const fetchCreateItemProduto = async (itemProd: ItemProduto) => {
         try {
@@ -202,7 +231,10 @@ function PedidoCompra() {
                 COMPRA_ROUTES.ITEMPRODUTO(''),
                 {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: new Headers({
+                        'Content-Type': 'application/json',
+                      "ngrok-skip-browser-warning": "69420",
+                    }) ,
                     body: JSON.stringify({ responsavelId: 21, setorId: itemProd.setorId, prodId: itemProd.prodId })
                 }
             );
@@ -225,7 +257,11 @@ function PedidoCompra() {
                 COMPRA_ROUTES.ITEMPRODUTO(''),
                 {
                     method: 'PATCH',
-                    headers: { 'Content-Type': 'application/json'},
+                    headers: new Headers({
+                        'Content-Type': 'application/json',
+                      "ngrok-skip-browser-warning": "69420",
+                    }) 
+                    ,
                     body: JSON.stringify(itemProd)
                 }
             );
@@ -246,7 +282,10 @@ function PedidoCompra() {
         try {
             const response = await fetch(
                 COMPRA_ROUTES.ITEMPRODUTO(`/${itemProd.itemId}`),
-                { method: 'DELETE' }
+                { method: 'DELETE',
+                    headers: new Headers({
+                      "ngrok-skip-browser-warning": "69420",
+                    })  }
             );
             const message = await response.text();
             if (!response.ok) {

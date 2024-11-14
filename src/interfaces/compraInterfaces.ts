@@ -96,6 +96,7 @@ export interface ItemCompra {
     marcaNome: string, 
     unidadeAbv: string, 
     fornNome: string, 
+    itemId: number,
     itemQntCompra: number,
     itemQntRestante: number, 
     itemVencimento: Date, 

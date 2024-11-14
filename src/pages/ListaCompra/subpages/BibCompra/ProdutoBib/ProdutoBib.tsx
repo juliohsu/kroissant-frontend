@@ -40,7 +40,7 @@ function ProdutoBib() {
     const [marcaJson, setMarcaJson] = useState<Marcas>({ listMarca: [] });
 
     // marca select state
-    const [selectMarca, setSelectMarca] = useState<number | ''>('');
+    const [selectMarca, setSelectMarca] = useState<number | ''>(88);
     const handleSelectMarca = (event: any) => {
         setSelectMarca(event.target.value);
     };
@@ -58,7 +58,7 @@ function ProdutoBib() {
     const [ fornecedorJson, setFornecedorJson ] = useState<Fornecedores>({ listFornecedor: [] });
 
     // fornecedor select state
-    const [selectFornecedor, setSelectFornecedor] = useState<number | ''>('');
+    const [selectFornecedor, setSelectFornecedor] = useState<number | ''>(41);
     const handleSelectFornecedor = (event: any) => {
         setSelectFornecedor(event.target.value);
     };
@@ -80,7 +80,10 @@ function ProdutoBib() {
                 COMPRA_ROUTES.PRODUTO(''),
                 { 
                     method: 'POST' ,
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: new Headers({
+                        'Content-Type': 'application/json',
+                      "ngrok-skip-browser-warning": "69420",
+                    }) ,
                     body: JSON.stringify({
                         prodNome: produtoNome,
                         catId: selectCategoria,
@@ -109,7 +112,12 @@ function ProdutoBib() {
     // produto display fetch
     const fetchProdutoDisplay = async (prodNome: string) => {
         try {
-            const response = await fetch(COMPRA_ROUTES.PRODUTO(`/filter?nome=${prodNome}`));
+            const response = await fetch(COMPRA_ROUTES.PRODUTO(`/filter?nome=${prodNome}`), {
+                method: `GET`,
+                headers: new Headers({
+                  "ngrok-skip-browser-warning": "69420",
+                }) 
+            });
             if (!response.ok) {
                 const message = await response.text();
                 console.error(`Erro do servidor:\n\n${message}`);
@@ -125,7 +133,12 @@ function ProdutoBib() {
     // categoria fetch
     const fetchCategoria = async () => {
         try {
-            const response = await fetch(COMPRA_ROUTES.CATEGORIA());
+            const response = await fetch(COMPRA_ROUTES.CATEGORIA(), {
+                method: `GET`,
+                headers: new Headers({
+                  "ngrok-skip-browser-warning": "69420",
+                }) 
+            });
             if (!response.ok) {
                 const message = await response.text();
                 console.error(`Erro do servidor:\n\n${message}`);
@@ -141,7 +154,12 @@ function ProdutoBib() {
     // marca fetch
     const fetchMarca = async () => {
         try {
-            const response = await fetch(COMPRA_ROUTES.MARCA());
+            const response = await fetch(COMPRA_ROUTES.MARCA(), {
+                method: `GET`,
+                headers: new Headers({
+                  "ngrok-skip-browser-warning": "69420",
+                }) 
+            });
             if (!response.ok) {
                 const message = await response.text();
                 console.error(`Erro do servidor:\n\n${message}`);
@@ -157,7 +175,12 @@ function ProdutoBib() {
     // unidade fetch
     const fetchUnidade = async () => {
         try {
-            const response = await fetch(COMPRA_ROUTES.UNIDADE());
+            const response = await fetch(COMPRA_ROUTES.UNIDADE(), {
+                method: `GET`,
+                headers: new Headers({
+                  "ngrok-skip-browser-warning": "69420",
+                }) 
+            });
             if (!response.ok) {
                 const message = await response.text();
                 console.error(`Erro do servidor:\n\n${message}`);
@@ -173,7 +196,12 @@ function ProdutoBib() {
     // fornecedor fetch
     const fetchFornecedor = async () => {
         try {
-            const response = await fetch(COMPRA_ROUTES.FORNECEDOR());
+            const response = await fetch(COMPRA_ROUTES.FORNECEDOR(), {
+                method: `GET`,
+                headers: new Headers({
+                  "ngrok-skip-browser-warning": "69420",
+                }) 
+            });
             if (!response.ok) {
                 const message = await response.text();
                 console.error(`Erro do servidor:\n\n${message}`);

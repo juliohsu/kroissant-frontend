@@ -28,7 +28,12 @@ function ProdutoBibDelete({id, onCleanTextField}: ProdutoDialogProps) {
     const fetchProdutoDelete = async (prodId: number) => {
         try {
 
-            const response = await fetch(COMPRA_ROUTES.PRODUTO(`/delete?prodId=${prodId}`), { method: 'DELETE' });
+            const response = await fetch(COMPRA_ROUTES.PRODUTO(`/delete?prodId=${prodId}`), { 
+                method: 'DELETE',
+                headers: new Headers({
+                  "ngrok-skip-browser-warning": "69420",
+                }) 
+             });
             
             if (response.ok) {
                 alert('Exclusão do prduto com sucesso!');
