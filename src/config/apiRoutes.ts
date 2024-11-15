@@ -1,4 +1,4 @@
-const BASE_URL = 'https://sharp-rockets-rule.loca.lt';
+const BASE_URL = 'https://fast-buttons-accept.loca.lt';
 
 export const COMPRA_ROUTES = {
     SETOR: () => `${BASE_URL}/setor`,
