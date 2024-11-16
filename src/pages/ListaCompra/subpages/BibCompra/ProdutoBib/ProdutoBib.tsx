@@ -83,6 +83,7 @@ function ProdutoBib() {
                     headers: new Headers({
                         'Content-Type': 'application/json',
                         "bypass-tunnel-reminder": "69420",
+                        "ngrok-skip-browser-warning": "69420",
                     }) ,
                     body: JSON.stringify({
                         prodNome: produtoNome,
@@ -116,6 +117,7 @@ function ProdutoBib() {
                 method: `GET`,
                 headers: new Headers({
                     "bypass-tunnel-reminder": "69420",
+                    "ngrok-skip-browser-warning": "69420",
                 }) 
             });
             if (!response.ok) {
@@ -137,6 +139,7 @@ function ProdutoBib() {
                 method: `GET`,
                 headers: new Headers({
                     "bypass-tunnel-reminder": "69420",
+                    "ngrok-skip-browser-warning": "69420",
                 }) 
             });
             if (!response.ok) {
@@ -158,6 +161,7 @@ function ProdutoBib() {
                 method: `GET`,
                 headers: new Headers({
                     "bypass-tunnel-reminder": "69420",
+                    "ngrok-skip-browser-warning": "69420",
                 }) 
             });
             if (!response.ok) {
@@ -179,6 +183,7 @@ function ProdutoBib() {
                 method: `GET`,
                 headers: new Headers({
                     "bypass-tunnel-reminder": "69420",
+                    "ngrok-skip-browser-warning": "69420",
                 }) 
             });
             if (!response.ok) {
@@ -200,6 +205,7 @@ function ProdutoBib() {
                 method: `GET`,
                 headers: new Headers({
                     "bypass-tunnel-reminder": "69420",
+                    "ngrok-skip-browser-warning": "69420",
                 }) 
             });
             if (!response.ok) {

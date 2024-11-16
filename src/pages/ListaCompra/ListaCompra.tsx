@@ -58,6 +58,7 @@ function ListaCompra() {
                 method: `GET`,
                 headers: new Headers({
                   "bypass-tunnel-reminder": "69420",
+                  "ngrok-skip-browser-warning": "69420",
                 }) });
             const res_json = await response.json();
             setItensCompra(res_json);

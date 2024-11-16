@@ -1,4 +1,4 @@
-const BASE_URL = 'https://fast-buttons-accept.loca.lt';
+const BASE_URL = 'https://ac8b-191-22-26-185.ngrok-free.app';
 
 export const COMPRA_ROUTES = {
     SETOR: () => `${BASE_URL}/setor`,
