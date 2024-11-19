@@ -132,6 +132,10 @@ function PedidoCompra() {
             } else {
                 fetchEditItemProduto(itemProd);
             }
+            setItemBoxOpen(prevState => ({
+                ...prevState,
+                [itemProd.itemId]: false
+            }));
         }
     };
 
