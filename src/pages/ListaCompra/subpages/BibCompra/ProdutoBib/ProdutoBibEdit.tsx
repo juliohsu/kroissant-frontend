@@ -39,7 +39,7 @@ function ProdutoBibEdit({ id, onCleanTextField }: ProdutoDialogProps) {
             const produtoServerResult = await fetch(COMPRA_ROUTES.PRODUTO(`/filter?id=${id}`), {
                 method: `GET`,
                 headers: new Headers({
-                  "ngrok-skip-browser-warning": "69420",
+                    "bypass-tunnel-reminder": "69420",
                 }) 
             });
             const produtoData = await produtoServerResult.json();
@@ -47,25 +47,25 @@ function ProdutoBibEdit({ id, onCleanTextField }: ProdutoDialogProps) {
             const categoriaServerResult = await fetch(COMPRA_ROUTES.CATEGORIA(), {
                 method: `GET`,
                 headers: new Headers({
-                  "ngrok-skip-browser-warning": "69420",
+                    "bypass-tunnel-reminder": "69420",
                 }) 
             });
             const marcaServerResult = await fetch(COMPRA_ROUTES.MARCA(), {
                 method: `GET`,
                 headers: new Headers({
-                  "ngrok-skip-browser-warning": "69420",
+                    "bypass-tunnel-reminder": "69420",
                 }) 
             });
             const unidadeServerResult = await fetch(COMPRA_ROUTES.UNIDADE(), {
                 method: `GET`,
                 headers: new Headers({
-                  "ngrok-skip-browser-warning": "69420",
+                    "bypass-tunnel-reminder": "69420",
                 }) 
             });
             const fornecedorServerResult = await fetch(COMPRA_ROUTES.FORNECEDOR(), {
                 method: `GET`,
                 headers: new Headers({
-                  "ngrok-skip-browser-warning": "69420",
+                    "bypass-tunnel-reminder": "69420",
                 }) 
             });
 
@@ -95,7 +95,7 @@ function ProdutoBibEdit({ id, onCleanTextField }: ProdutoDialogProps) {
                     method: 'PATCH',
                     headers: new Headers({
                         'Content-Type': 'application/json',
-                      "ngrok-skip-browser-warning": "69420",
+                        "bypass-tunnel-reminder": "69420",
                     }) ,
                     body: JSON.stringify({
                         prodId: produtoData.id,

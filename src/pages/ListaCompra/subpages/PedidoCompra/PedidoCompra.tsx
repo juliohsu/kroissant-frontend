@@ -145,7 +145,8 @@ function PedidoCompra() {
             const response = await fetch(
                 COMPRA_ROUTES.SETOR(), { method: 'GET',
                     headers: new Headers({
-                      "ngrok-skip-browser-warning": "69420",
+                        "bypass-tunnel-reminder": "69420",
+                        "ngrok-skip-browser-warning": "69420",
                     })  }
             );
             const responseJson = await response.json();
@@ -160,7 +161,8 @@ function PedidoCompra() {
             const response = await fetch(
                 COMPRA_ROUTES.SECAO(), { method: 'GET',
                     headers: new Headers({
-                      "ngrok-skip-browser-warning": "69420",
+                        "bypass-tunnel-reminder": "69420",
+                        "ngrok-skip-browser-warning": "69420",
                     })  }
             );
             const responseJson = await response.json();
@@ -175,7 +177,8 @@ function PedidoCompra() {
             const response = await fetch(
                 COMPRA_ROUTES.CATEGORIA(), { method: 'GET',
                     headers: new Headers({
-                      "ngrok-skip-browser-warning": "69420",
+                        "bypass-tunnel-reminder": "69420",
+                        "ngrok-skip-browser-warning": "69420",
                     })  }
             );
             const responseJson = await response.json();
@@ -192,7 +195,8 @@ function PedidoCompra() {
             const response = await fetch(COMPRA_ROUTES.ITEMPRODUTO(''), { 
                 method: 'GET',
                 headers: new Headers({
-                  "ngrok-skip-browser-warning": "69420",
+                    "bypass-tunnel-reminder": "69420",
+                    "ngrok-skip-browser-warning": "69420",
                 }) 
             });
     
@@ -233,7 +237,8 @@ function PedidoCompra() {
                     method: 'POST',
                     headers: new Headers({
                         'Content-Type': 'application/json',
-                      "ngrok-skip-browser-warning": "69420",
+                        "bypass-tunnel-reminder": "69420",
+                        "ngrok-skip-browser-warning": "69420",
                     }) ,
                     body: JSON.stringify({ responsavelId: 21, setorId: itemProd.setorId, prodId: itemProd.prodId })
                 }
@@ -259,7 +264,8 @@ function PedidoCompra() {
                     method: 'PATCH',
                     headers: new Headers({
                         'Content-Type': 'application/json',
-                      "ngrok-skip-browser-warning": "69420",
+                        "bypass-tunnel-reminder": "69420",
+                        "ngrok-skip-browser-warning": "69420",
                     }) 
                     ,
                     body: JSON.stringify(itemProd)
@@ -284,7 +290,8 @@ function PedidoCompra() {
                 COMPRA_ROUTES.ITEMPRODUTO(`/${itemProd.itemId}`),
                 { method: 'DELETE',
                     headers: new Headers({
-                      "ngrok-skip-browser-warning": "69420",
+                        "bypass-tunnel-reminder": "69420",
+                        "ngrok-skip-browser-warning": "69420",
                     })  }
             );
             const message = await response.text();

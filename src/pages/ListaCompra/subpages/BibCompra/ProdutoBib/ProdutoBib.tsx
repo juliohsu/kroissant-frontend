@@ -82,7 +82,8 @@ function ProdutoBib() {
                     method: 'POST' ,
                     headers: new Headers({
                         'Content-Type': 'application/json',
-                      "ngrok-skip-browser-warning": "69420",
+                        "bypass-tunnel-reminder": "69420",
+                        "ngrok-skip-browser-warning": "69420",
                     }) ,
                     body: JSON.stringify({
                         prodNome: produtoNome,
@@ -115,7 +116,8 @@ function ProdutoBib() {
             const response = await fetch(COMPRA_ROUTES.PRODUTO(`/filter?nome=${prodNome}`), {
                 method: `GET`,
                 headers: new Headers({
-                  "ngrok-skip-browser-warning": "69420",
+                    "bypass-tunnel-reminder": "69420",
+                    "ngrok-skip-browser-warning": "69420",
                 }) 
             });
             if (!response.ok) {
@@ -136,7 +138,8 @@ function ProdutoBib() {
             const response = await fetch(COMPRA_ROUTES.CATEGORIA(), {
                 method: `GET`,
                 headers: new Headers({
-                  "ngrok-skip-browser-warning": "69420",
+                    "bypass-tunnel-reminder": "69420",
+                    "ngrok-skip-browser-warning": "69420",
                 }) 
             });
             if (!response.ok) {
@@ -157,7 +160,8 @@ function ProdutoBib() {
             const response = await fetch(COMPRA_ROUTES.MARCA(), {
                 method: `GET`,
                 headers: new Headers({
-                  "ngrok-skip-browser-warning": "69420",
+                    "bypass-tunnel-reminder": "69420",
+                    "ngrok-skip-browser-warning": "69420",
                 }) 
             });
             if (!response.ok) {
@@ -178,7 +182,8 @@ function ProdutoBib() {
             const response = await fetch(COMPRA_ROUTES.UNIDADE(), {
                 method: `GET`,
                 headers: new Headers({
-                  "ngrok-skip-browser-warning": "69420",
+                    "bypass-tunnel-reminder": "69420",
+                    "ngrok-skip-browser-warning": "69420",
                 }) 
             });
             if (!response.ok) {
@@ -199,7 +204,8 @@ function ProdutoBib() {
             const response = await fetch(COMPRA_ROUTES.FORNECEDOR(), {
                 method: `GET`,
                 headers: new Headers({
-                  "ngrok-skip-browser-warning": "69420",
+                    "bypass-tunnel-reminder": "69420",
+                    "ngrok-skip-browser-warning": "69420",
                 }) 
             });
             if (!response.ok) {
