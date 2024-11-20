@@ -3,6 +3,8 @@ import { CameraCaptureProps } from "interfaces/compraInterfaces";
 import { useCallback, useRef, useState } from "react";
 
 import ReplyIcon from "@mui/icons-material/Reply";
+import SendIcon from "@mui/icons-material/Send";
+
 import Webcam from "react-webcam";
 
 function CameraCapture({ onClose, sendImgData }: CameraCaptureProps) {
@@ -23,20 +25,20 @@ function CameraCapture({ onClose, sendImgData }: CameraCaptureProps) {
     sendImgData(img);
   };
   return (
-    <Box sx={{ position: "relative", height: img === "" ? "90vh" : "50vh" }}>
+    <Box sx={{ position: "relative", height: img === "" ? "76vh" : "60vh" }}>
       <Box
         sx={{
           position: "absolute",
           top: 20,
-          right: 20,
-          zIndex: 99
+          left: 20,
+          zIndex: 99,
         }}
       >
         <ReplyIcon
           onClick={onClose}
           color="secondary"
           sx={{
-            fontSize: "7rem",
+            fontSize: "5rem",
             cursor: "pointer",
           }}
         />
@@ -55,6 +57,7 @@ function CameraCapture({ onClose, sendImgData }: CameraCaptureProps) {
             ref={webcamRef}
             screenshotFormat="image/jpeg"
             height="100%"
+            videoConstraints={{ facingMode: "enviroment" }}
           />
           <Button
             onClick={capture}
@@ -88,28 +91,46 @@ function CameraCapture({ onClose, sendImgData }: CameraCaptureProps) {
             height: "92%",
           }}
         >
-          {img && <img src={img} alt="foto" width="100%" />}
+          {img && (
+            <img
+              src={img}
+              alt="foto"
+              width={window.innerWidth <= 768 ? "100%" : "50%"}
+            />
+          )}
+          <SendIcon
+            onClick={sendImage}
+            color="secondary"
+            sx={{
+              fontSize: "3.5rem",
+              cursor: "pointer",
+              position: "absolute",
+              top: 30,
+              right: 30,
+              zIndex: 99,
+            }}
+          />
           <Button
             onClick={reset}
             sx={{
               width: "100%",
               fontSize: "2.5rem",
-              color: "black",
-              backgroundColor: "white",
+              color: "white",
+              backgroundColor: "black",
+              transition: "none", // Disable transition effect
+              "&:hover": {
+                backgroundColor: "black", // Keep the background color the same on hover
+              },
+              "&:active": {
+                backgroundColor: "black", // Keep the background color the same when clicked
+              },
+              "&:focus": {
+                backgroundColor: "black", // Keep the background color the same when focused
+                boxShadow: "none", // Remove any focus outline
+              },
             }}
           >
             Tirar Denovo
-          </Button>
-          <Button
-            onClick={sendImage}
-            sx={{
-              width: "100%",
-              fontSize: "2.5rem",
-              color: "white",
-              backgroundColor: "black",
-            }}
-          >
-            Enviar Foto
           </Button>
         </Box>
       )}

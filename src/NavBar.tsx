@@ -58,7 +58,7 @@ const NavBar: React.FC = () => {
                     <Button color="inherit" component={Link} to="/reserva">Reserva</Button>
                     <Button color="inherit" onClick={handleDeliveryRedirect}>Delivery</Button>
                     <Button color="inherit" onClick={handleEncomendaRedirect}>Encomenda</Button>
-                    <Button color="inherit" onClick={handleContatoRedirect}>Suporte</Button>
+                    <Button color="inherit" onClick={handleContatoRedirect}>WhatsApp</Button>
                 </Box>
             </Toolbar>
         </AppBar>

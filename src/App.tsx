@@ -26,7 +26,7 @@ const App: React.FC = () => {
             {/* Use a custom function to redirect to external URL */}
             <Route path="/encomenda" element={<></>} />
             {/* Use a custom function to redirect to external WhatsApp */}
-            <Route path="/suporte" element={<></>} />
+            <Route path="/whatsapp" element={<></>} />
             <Route path="/lista-compra" element={<Compra />} />
             <Route path="/lista-compra/pedido" element={<PedidoCompra />} />
             <Route path="/lista-compra/biblioteca" element={<ProdutoBib />} />
