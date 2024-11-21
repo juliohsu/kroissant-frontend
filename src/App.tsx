@@ -8,9 +8,9 @@ import NavBar from "./NavBar";
 import Inicio from "./pages/Inicio/Inicio";
 import Reserva from "./pages/Reserva/Reserva";
 
-import ListaCompra from "./pages/ListaCompra/ListaCompra";
-import PedidoCompra from "./pages/ListaCompra/subpages/PedidoCompra/PedidoCompra";
-import ProdutoBib from "./pages/ListaCompra/subpages/BibCompra/ProdutoBib/ProdutoBib";
+import Compra from "./pages/Compra";
+import PedidoCompra from "./pages/Compra/subpages/PedidoCompra/PedidoCompra";
+import ProdutoBib from "./pages/Compra/subpages/BibCompra/ProdutoBib/ProdutoBib";
 
 const App: React.FC = () => {
 
@@ -26,10 +26,10 @@ const App: React.FC = () => {
             {/* Use a custom function to redirect to external URL */}
             <Route path="/encomenda" element={<></>} />
             {/* Use a custom function to redirect to external WhatsApp */}
-            <Route path="/suporte" element={<></>} />
-            <Route path="/lista-compra" element={<ListaCompra />} />
-            <Route path="/lista-compra/pedido-compra" element={<PedidoCompra />} />
-            <Route path="/lista-compra/biblioteca-produto" element={<ProdutoBib />} />
+            <Route path="/whatsapp" element={<></>} />
+            <Route path="/lista-compra" element={<Compra />} />
+            <Route path="/lista-compra/pedido" element={<PedidoCompra />} />
+            <Route path="/lista-compra/biblioteca" element={<ProdutoBib />} />
           </Routes>
         </Box>
       </Router>

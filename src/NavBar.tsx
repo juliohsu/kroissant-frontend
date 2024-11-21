@@ -58,7 +58,7 @@ const NavBar: React.FC = () => {
                     <Button color="inherit" component={Link} to="/reserva">Reserva</Button>
                     <Button color="inherit" onClick={handleDeliveryRedirect}>Delivery</Button>
                     <Button color="inherit" onClick={handleEncomendaRedirect}>Encomenda</Button>
-                    <Button color="inherit" onClick={handleContatoRedirect}>Suporte</Button>
+                    <Button color="inherit" onClick={handleContatoRedirect}>WhatsApp</Button>
                 </Box>
             </Toolbar>
         </AppBar>
@@ -108,7 +108,7 @@ const NavBar: React.FC = () => {
                             sx={{ fontSize: '1.25rem', marginBottom: '1rem', width: '80%' }} 
                             startIcon={<ListAltIcon />}
                             component={Link}
-                            to='/lista-compra/pedido-compra'
+                            to='/lista-compra/pedido'
                         >
                             Pedido Compra
                         </Button>
@@ -118,7 +118,7 @@ const NavBar: React.FC = () => {
                             sx={{ fontSize: '1.25rem', marginBottom: '1rem', width: '80%' }}
                             startIcon={<AutoStoriesIcon />}
                             component={Link}
-                            to='/lista-compra/biblioteca-produto'
+                            to='/lista-compra/biblioteca'
                         >
                             BiBlioteca
                         </Button>
