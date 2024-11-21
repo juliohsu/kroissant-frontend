@@ -2,6 +2,8 @@ import { useState } from "react";
 import ListaCompra from "./subpages/ListaCompra/ListaCompra";
 import { Box } from "@mui/material";
 import CameraCapture from "./components/Camera/CameraCapture";
+import { COMPRA_ROUTES } from "./../../config/apiRoutes";
+import { dataURLtoBlob } from "../../utils/helper";
 
 function Compra() {
   const [takePhoto, setTakePhoto] = useState(false);
@@ -11,9 +13,27 @@ function Compra() {
   const handleTakePhotoTrue = () => {
     setTakePhoto(true);
   };
-  const handleImageData = (image: string) => {
+  const handleImageData = async (image: string) => {
     setTakePhoto(false);
-    console.log(image);
+    try {
+      const formData = new FormData();
+      const imageBlob = dataURLtoBlob(image);
+      formData.append("nota_compra", imageBlob, "nota_compra.jpg");
+      const response = await fetch(COMPRA_ROUTES.ITENSCOMPRA(), {
+        method: "POST",
+        body: formData,
+        mode: "cors",
+      });
+      if (response.ok) {
+        const resJson = await response.json();
+        alert(`Texto extraido:\n` + resJson.text);
+      } else {
+        alert("Erro ao processar imagem.");
+      }
+    } catch (err) {
+      alert(err);
+      console.error(err);
+    }
   };
   return (
     <Box>
