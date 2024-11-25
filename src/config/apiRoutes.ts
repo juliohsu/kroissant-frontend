@@ -1,4 +1,4 @@
-const BASE_URL = 'https://e2a34f23c687.ngrok.app';
+const BASE_URL = 'https://d92657f1d38c.ngrok.app';
 
 export const COMPRA_ROUTES = {
     SETOR: () => `${BASE_URL}/setor`,
@@ -7,7 +7,7 @@ export const COMPRA_ROUTES = {
     PRODUTO: (sublink: string) => `${BASE_URL}/produto${sublink}`,
     ITEMPRODUTO: (sublink: string) => `${BASE_URL}/item-produto${sublink}`, 
     ITEMCOMPRA: (sublink: string) => `${BASE_URL}/item-compra${sublink}`,
-    ITENSCOMPRA: () => `${BASE_URL}/itens-compra`,
+    SCANCOMPRA: () => `${BASE_URL}/scan-ocr`,
     MARCA: () => `${BASE_URL}/marca`,
     UNIDADE: () => `${BASE_URL}/unidade`,
     FORNECEDOR: () => `${BASE_URL}/fornecedor`,

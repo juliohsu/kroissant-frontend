@@ -18,8 +18,8 @@ function Compra() {
     try {
       const formData = new FormData();
       const imageBlob = dataURLtoBlob(image);
-      formData.append("nota_compra", imageBlob, "nota_compra.jpg");
-      const response = await fetch(COMPRA_ROUTES.ITENSCOMPRA(), {
+      formData.append("image", imageBlob, "nota_compra.jpg");
+      const response = await fetch(COMPRA_ROUTES.SCANCOMPRA(), {
         method: "POST",
         body: formData,
         mode: "cors",
