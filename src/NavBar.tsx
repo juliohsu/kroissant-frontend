@@ -16,7 +16,7 @@ const NavBar: React.FC = () => {
 
     const handleEncomendaRedirect = () => {
         const message = "Olá, tudo bem? Quero fazer uma encomenda para...";
-        const whatsappUrl = `https://wa.me/5583991409999?text=${encodeURIComponent(message)}`;
+        const whatsappUrl = `https://wa.me/558321480945?text=${encodeURIComponent(message)}`;
         window.location.href = whatsappUrl;
     };
 
