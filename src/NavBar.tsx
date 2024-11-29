@@ -16,7 +16,7 @@ const NavBar: React.FC = () => {
 
     const handleEncomendaRedirect = () => {
         const message = "Olá, tudo bem? Quero fazer uma encomenda para...";
-        const whatsappUrl = `https://wa.me/558386182324?text=${encodeURIComponent(message)}`;
+        const whatsappUrl = `https://wa.me/5583991409999?text=${encodeURIComponent(message)}`;
         window.location.href = whatsappUrl;
     };
 
@@ -24,7 +24,7 @@ const NavBar: React.FC = () => {
         window.location.href = "https://www.ifood.com.br/delivery/campina-grande-pb/kroissant-jardim-tavares/a8a0c010-25f3-4571-9c38-8e92feda4234?utm_medium=share";
     };
 
-    const handleContatoRedirect = () => {
+    const handleSuporteRedirect = () => {
         window.location.href = "https://wa.me/558321480945";
     };
 
@@ -58,7 +58,7 @@ const NavBar: React.FC = () => {
                     <Button color="inherit" component={Link} to="/reserva">Reserva</Button>
                     <Button color="inherit" onClick={handleDeliveryRedirect}>Delivery</Button>
                     <Button color="inherit" onClick={handleEncomendaRedirect}>Encomenda</Button>
-                    <Button color="inherit" onClick={handleContatoRedirect}>WhatsApp</Button>
+                    <Button color="inherit" onClick={handleSuporteRedirect}>Suporte</Button>
                 </Box>
             </Toolbar>
         </AppBar>
