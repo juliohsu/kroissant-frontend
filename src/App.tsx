@@ -6,7 +6,7 @@ import theme from "./theme"; // Import the custom theme
 import NavBar from "./NavBar";
 
 import Inicio from "./pages/Inicio/Inicio";
-import Reserva from "./pages/Reserva/Reserva";
+import Reserva from "./pages/Reserva";
 
 import Compra from "./pages/Compra";
 import PedidoCompra from "./pages/Compra/subpages/PedidoCompra/PedidoCompra";

@@ -137,7 +137,7 @@ const Reserva: React.FC = () => {
       "N/A"
     }\n*Tamanho*: ${cakeSize.toUpperCase() || "N/A"}`;
 
-    const whatsappUrl = `https://wa.me/558386182324?text=${encodeURIComponent(
+    const whatsappUrl = `https://wa.me/5583991409999?text=${encodeURIComponent(
       message
     )}`;
     window.open(whatsappUrl, "_blank");
