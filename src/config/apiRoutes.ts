@@ -1,4 +1,4 @@
-const BASE_URL = 'https://d92657f1d38c.ngrok.app';
+const BASE_URL = 'https://64c24843c499.ngrok.app';
 
 export const COMPRA_ROUTES = {
     SETOR: () => `${BASE_URL}/setor`,
