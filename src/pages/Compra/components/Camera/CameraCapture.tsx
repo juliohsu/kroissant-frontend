@@ -55,9 +55,13 @@ function CameraCapture({ onClose, sendImgData }: CameraCaptureProps) {
           <Webcam
             audio={false}
             ref={webcamRef}
-            screenshotFormat="image/jpeg"
+            screenshotFormat="image/png"
             height="100%"
-            videoConstraints={{ facingMode: "enviroment" }}
+            videoConstraints={{
+              facingMode: "environment", // Ensure you're using the back camera (for mobile)
+              width: 1284, // Higher width for better quality
+              height: 2778, // Higher height for better quality
+            }}
           />
           <Button
             onClick={capture}
