@@ -432,6 +432,20 @@ function ProdutoBib() {
             />
           </FormControl>
           <FormControl fullWidth sx={{ marginBottom: 1.5 }}>
+            <InputLabel>Categoria</InputLabel>
+            <Select
+              value={selectCategoria}
+              onChange={handleSelectCategoria}
+              label="Categoria"
+            >
+              {categoria_json.listCategoria.map((categoria: Categoria) => (
+                <MenuItem key={categoria.id} value={categoria.id}>
+                  {categoria.nome}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <FormControl fullWidth sx={{ marginBottom: 1.5 }}>
             <InputLabel>Unidade Medida</InputLabel>
             <Select
               value={selectUnidade}
@@ -455,20 +469,6 @@ function ProdutoBib() {
               {marcaJson.listMarca.map((marca) => (
                 <MenuItem key={marca.id} value={marca.id}>
                   {marca.nome}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          <FormControl fullWidth sx={{ marginBottom: 1.5 }}>
-            <InputLabel>Categoria</InputLabel>
-            <Select
-              value={selectCategoria}
-              onChange={handleSelectCategoria}
-              label="Categoria"
-            >
-              {categoria_json.listCategoria.map((categoria: Categoria) => (
-                <MenuItem key={categoria.id} value={categoria.id}>
-                  {categoria.nome}
                 </MenuItem>
               ))}
             </Select>
