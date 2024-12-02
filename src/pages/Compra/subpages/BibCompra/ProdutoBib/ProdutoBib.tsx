@@ -90,7 +90,7 @@ function ProdutoBib() {
   });
 
   // fornecedor select state
-  const [selectFornecedor, setSelectFornecedor] = useState<number | "">(41);
+  const [selectFornecedor, setSelectFornecedor] = useState<number | "">(62);
   const handleSelectFornecedor = (event: any) => {
     setSelectFornecedor(event.target.value);
   };
@@ -189,6 +189,7 @@ function ProdutoBib() {
       }
       const resultJson = await response.json();
       setCategoriaJson(resultJson);
+      console.log(resultJson);
     } catch (err) {
       console.error(`Erro de conexão ao servidor:\n\n${err}`);
     }
