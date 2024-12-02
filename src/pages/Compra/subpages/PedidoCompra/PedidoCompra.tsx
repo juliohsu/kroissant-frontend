@@ -423,7 +423,7 @@ function PedidoCompra() {
             >
               {setor}
             </Typography>
-            <Box>
+            <Box sx={{ border: "1px solid rgba(169, 169, 169, 0.5)" }}>
               {!setorBoxOpen[setor] ? (
                 <Button
                   onClick={() => handleSetorBoxOpen(setor)}
