@@ -406,6 +406,8 @@ function PedidoCompra() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
+  const [displayProdutos, setDisplayProdutos] = useState<string>("");
+
   return (
     <Box>
       <Typography
@@ -426,7 +428,10 @@ function PedidoCompra() {
             <Box sx={{ border: "1px solid rgba(169, 169, 169, 0.5)" }}>
               {!setorBoxOpen[setor] ? (
                 <Button
-                  onClick={() => handleSetorBoxOpen(setor)}
+                  onClick={() => {
+                    handleSetorBoxOpen(setor);
+                    setDisplayProdutos("");
+                  }}
                   sx={{
                     marginY: 1,
                     display: "flex",
@@ -455,6 +460,14 @@ function PedidoCompra() {
                     <Typography>Mostrar menos</Typography>
                     <ExpandLess />
                   </Button>
+                  <Box>
+                    <TextField
+                      fullWidth
+                      label="Pesquise o nome produto"
+                      onChange={(e) => setDisplayProdutos(e.target.value)}
+                      sx={{ marginTop: "1rem" }}
+                    />
+                  </Box>
                   {Object.keys(itensProdutoMap[setor]).map((secao) => (
                     <Box>
                       <Typography
@@ -480,8 +493,28 @@ function PedidoCompra() {
                                 {categoria}
                               </Typography>
                               <List>
-                                {itensProdutoMap[setor][secao][categoria].map(
-                                  (itemProd: ItemProduto) => (
+                                {itensProdutoMap[setor][secao][categoria]
+                                  .filter(
+                                    (itemProd) =>
+                                      // Filter items based on the search query (check if the query is part of the product name or other relevant fields)
+                                      itemProd.prodNome
+                                        .toLowerCase()
+                                        .includes(
+                                          displayProdutos.toLowerCase()
+                                        ) ||
+                                      itemProd.prodMarca
+                                        .toLowerCase()
+                                        .includes(
+                                          displayProdutos.toLowerCase()
+                                        ) ||
+                                      itemProd.qntCompra
+                                        .toString()
+                                        .includes(displayProdutos) || // Include quantity filter
+                                      itemProd.qntRestante
+                                        .toString()
+                                        .includes(displayProdutos) // Include remaining quantity filter
+                                  )
+                                  .map((itemProd: ItemProduto) => (
                                     <ListItem
                                       sx={{
                                         display: "flex",
@@ -552,9 +585,10 @@ function PedidoCompra() {
                                         <Box>
                                           {!itemBoxOpen[itemProd.itemId] ? (
                                             <Button
-                                              onClick={() =>
-                                                handleItemBoxOpen(itemProd)
-                                              }
+                                              onClick={() => {
+                                                handleItemBoxOpen(itemProd);
+                                                setDisplayProdutos("");
+                                              }}
                                               color="secondary"
                                             >
                                               Mostrar mais
@@ -651,8 +685,7 @@ function PedidoCompra() {
                                         </Box>
                                       )}
                                     </ListItem>
-                                  )
-                                )}
+                                  ))}
                               </List>
                             </Box>
                           )
@@ -661,7 +694,10 @@ function PedidoCompra() {
                     </Box>
                   ))}
                   <Button
-                    onClick={() => handleSetorBoxClose(setor)}
+                    onClick={() => {
+                      handleSetorBoxClose(setor);
+                      setDisplayProdutos("");
+                    }}
                     sx={{
                       color: "white",
                       backgroundColor: "black",

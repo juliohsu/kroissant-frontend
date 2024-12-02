@@ -61,7 +61,6 @@ function ListaCompra({ onOpen }: ListaCompraProps) {
         }
       );
       const res_json = await response.text();
-      console.log(res_json);
     } catch (err) {
       alert("Erro de conexão ao servidor!");
       console.error(`Erro de conexão ao servidor:\n\n${err}`);
