@@ -29,7 +29,7 @@ import {
   Unidades,
 } from "interfaces/compraInterfaces";
 import { COMPRA_ROUTES } from "../../../../../config/apiRoutes";
-
+import SearchIcon from "@mui/icons-material/Search";
 import ProdutoBibDelete from "./ProdutoBibDelete";
 import ProdutoBibEdit from "./ProdutoBibEdit";
 
@@ -189,7 +189,6 @@ function ProdutoBib() {
       }
       const resultJson = await response.json();
       setCategoriaJson(resultJson);
-      console.log(resultJson);
     } catch (err) {
       console.error(`Erro de conexão ao servidor:\n\n${err}`);
     }
@@ -269,7 +268,6 @@ function ProdutoBib() {
     fetchUnidade();
     fetchFornecedor();
     const interval = setInterval(() => {
-      fetchProdutoDisplay(produtoDisplayTextField);
       fetchCategoria();
       fetchMarca();
       fetchUnidade();
@@ -278,7 +276,7 @@ function ProdutoBib() {
     return () => {
       clearInterval(interval);
     };
-  }, [produtoDisplayTextField]);
+  }, []);
 
   return (
     <Box>
@@ -299,8 +297,9 @@ function ProdutoBib() {
           <FormControl
             sx={{
               display: "flex",
-              flexDirection: "column",
+              flexDirection: "row",
               alignItems: "center",
+              gap: 1,
             }}
           >
             <TextField
@@ -309,6 +308,16 @@ function ProdutoBib() {
               onChange={handleProdutoDisplayTextField}
               value={produtoDisplayTextField}
             />
+            <Button
+              color="primary"
+              sx={{ height: "3.5rem", backgroundColor: "black" }}
+              onClick={() => {
+                fetchProdutoDisplay(produtoDisplayTextField);
+                console.log(produtoDisplayTextField);
+              }}
+            >
+              <SearchIcon />
+            </Button>
           </FormControl>
           <Paper>
             <TableContainer
