@@ -105,9 +105,9 @@ function ListaCompra({ onOpen }: ListaCompraProps) {
   const organizeRetrievedData = () => {
     const map: ItensCompraMap = {};
     itensCompra.listItemCompra?.forEach((item: ItemCompra) => {
-      const fornecedorSection = `- ${item.fornNome} -`;
+      const fornecedorSection = `Responsável: ${item.fornNome}`;
       const foodSection = item.secaoNome;
-      const workSector = `${item.setorNome} (Responsável: ${item.responsavelNome})`;
+      const workSector = `${item.setorNome}`;
       if (!map[fornecedorSection]) map[fornecedorSection] = {};
       if (!map[fornecedorSection][foodSection])
         map[fornecedorSection][foodSection] = {};
@@ -170,11 +170,7 @@ function ListaCompra({ onOpen }: ListaCompraProps) {
               Object.keys(dataMap).map((fornecedorSection) => (
                 <Box key={fornecedorSection}>
                   <Divider sx={{ marginY: "2rem" }} />
-                  <h3>
-                    {!fornecedorSection
-                      ? fornecedorSection.toUpperCase()
-                      : "Fornecedor não especificado"}
-                  </h3>
+                  <h3>{fornecedorSection.toUpperCase()}</h3>
                   {Object.keys(dataMap[fornecedorSection]).map(
                     (foodSection) => (
                       <Box key={foodSection}>

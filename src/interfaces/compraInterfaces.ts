@@ -87,7 +87,7 @@ export interface ItensProdutoMap {
 }
 
 export interface ItemCompra {
-  responsavelNome: string;
+  responsavelNome: string; 
   setorNome: string;
   secaoNome: string;
   catNome: string;
