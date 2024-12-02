@@ -36,7 +36,7 @@ function ListaCompra({ onOpen }: ListaCompraProps) {
   // estado da seleção dos itens de compra
   const [checked, setChecked] = useState([0]);
 
-  const handleItemToggle = (id: number) => {
+  /* const handleItemToggle = (id: number) => {
     const currentIndex = checked.indexOf(id);
     const newChecked = [...checked];
 
@@ -47,6 +47,25 @@ function ListaCompra({ onOpen }: ListaCompraProps) {
     }
 
     setChecked(newChecked);
+  }; */
+  const handleItemToggle = async (itemId: number) => {
+    try {
+      const response = await fetch(
+        COMPRA_ROUTES.ITEMCOMPRA(`?itemId=${itemId}`),
+        {
+          method: "PATCH",
+          headers: new Headers({
+            "bypass-tunnel-reminder": "69420",
+            "ngrok-skip-browser-warning": "69420",
+          }),
+        }
+      );
+      const res_json = await response.text();
+      console.log(res_json);
+    } catch (err) {
+      alert("Erro de conexão ao servidor!");
+      console.error(`Erro de conexão ao servidor:\n\n${err}`);
+    }
   };
 
   // condição do dispositivo para definir as fontes do tema principal
@@ -86,6 +105,7 @@ function ListaCompra({ onOpen }: ListaCompraProps) {
       const res_json = await response.json();
       setItensCompra(res_json);
     } catch (err) {
+      alert("Erro de conexão ao servidor!");
       console.error(`Erro de conexão ao servidor:\n\n${err}`);
     }
   };
@@ -208,7 +228,9 @@ function ListaCompra({ onOpen }: ListaCompraProps) {
                                       }
                                     >
                                       <Checkbox
-                                        checked={checked.includes(item.itemId)}
+                                        checked={
+                                          item.itemComprado === 1 ? true : false
+                                        }
                                         color="secondary"
                                       />
                                       <Box>
@@ -216,7 +238,7 @@ function ListaCompra({ onOpen }: ListaCompraProps) {
                                           component="span"
                                           sx={{ fontWeight: "bold" }}
                                           color={
-                                            checked.includes(item.prodId)
+                                            item.itemComprado === 1
                                               ? "gray"
                                               : "black"
                                           }
@@ -233,7 +255,7 @@ function ListaCompra({ onOpen }: ListaCompraProps) {
                                           variant="caption"
                                           sx={{ fontWeight: "normal" }}
                                           color={
-                                            checked.includes(item.prodId)
+                                            item.itemComprado === 1
                                               ? "gray"
                                               : "black"
                                           }

@@ -100,6 +100,7 @@ export interface ItemCompra {
   itemQntCompra: number;
   itemQntRestante: number;
   itemVencimento: Date;
+  itemComprado: number;
 }
 
 export interface ItensCompra {
