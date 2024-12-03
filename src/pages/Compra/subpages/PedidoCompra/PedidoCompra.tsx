@@ -460,7 +460,14 @@ function PedidoCompra() {
                     <Typography>Mostrar menos</Typography>
                     <ExpandLess />
                   </Button>
-                  <Box>
+                  <Box
+                    sx={{
+                      position: "sticky",
+                      zIndex: 1,
+                      top: 35,
+                      backgroundColor: "white",
+                    }}
+                  >
                     <TextField
                       fullWidth
                       label="Pesquise o nome produto"
