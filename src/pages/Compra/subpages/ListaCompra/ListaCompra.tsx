@@ -72,7 +72,9 @@ function ListaCompra({ onOpen }: ListaCompraProps) {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   // estado de seleção da itensCompra de lista de compra
-  const [selectedDate, setSelectedDate] = useState<Dayjs | null>(dayjs());
+  const [selectedDate, setSelectedDate] = useState<Dayjs | null>(
+    dayjs().subtract(1, "day")
+  );
 
   const handleSelectedDate = (newDate: Dayjs | null) => {
     setSelectedDate(newDate);
@@ -193,7 +195,9 @@ function ListaCompra({ onOpen }: ListaCompraProps) {
                   {Object.keys(dataMap[fornecedorSection]).map(
                     (foodSection) => (
                       <Box key={foodSection}>
-                        <h4>{foodSection.toUpperCase()}</h4>
+                        <h4 style={{ color: "gray" }}>
+                          {foodSection.toUpperCase()}
+                        </h4>
                         {Object.keys(
                           dataMap[fornecedorSection][foodSection]
                         ).map((workSector) => (
