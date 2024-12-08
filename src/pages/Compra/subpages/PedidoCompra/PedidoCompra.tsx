@@ -475,231 +475,283 @@ function PedidoCompra() {
                       sx={{ marginTop: "1rem" }}
                     />
                   </Box>
-                  {Object.keys(itensProdutoMap[setor]).map((secao) => (
-                    <Box>
-                      <Typography
-                        variant={isMobile ? "h5" : "h4"}
-                        sx={{
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "center",
-                          marginY: "1.5rem",
-                          color: "gray",
-                        }}
-                      >
-                        {secao}
-                      </Typography>
-                      <Box sx={{ p: "2rem" }}>
-                        {Object.keys(itensProdutoMap[setor][secao]).map(
-                          (categoria) => (
-                            <Box>
-                              <Typography
-                                variant={isMobile ? "h6" : "h4"}
-                                sx={{ fontSize: "1.5rem" }}
-                              >
-                                {categoria}
-                              </Typography>
-                              <List>
-                                {itensProdutoMap[setor][secao][categoria]
-                                  .filter(
-                                    (itemProd) =>
-                                      // Filter items based on the search query (check if the query is part of the product name or other relevant fields)
-                                      itemProd.prodNome
-                                        .toLowerCase()
-                                        .includes(
-                                          displayProdutos.toLowerCase()
-                                        ) ||
-                                      itemProd.prodMarca
-                                        .toLowerCase()
-                                        .includes(
-                                          displayProdutos.toLowerCase()
-                                        ) ||
-                                      itemProd.qntCompra
-                                        .toString()
-                                        .includes(displayProdutos) || // Include quantity filter
-                                      itemProd.qntRestante
-                                        .toString()
-                                        .includes(displayProdutos) // Include remaining quantity filter
-                                  )
-                                  .map((itemProd: ItemProduto) => (
-                                    <ListItem
-                                      sx={{
-                                        display: "flex",
-                                        flexDirection: "column",
-                                        marginBottom: 2,
-                                        border: "1px solid black",
-                                      }}
-                                    >
-                                      <ListItemButton
-                                        onClick={() =>
-                                          handleCheckBoxClick(itemProd)
-                                        }
+                  {Object.keys(itensProdutoMap[setor])
+                    .filter((secao) => {
+                      const length1 = Object.keys(
+                        itensProdutoMap[setor][secao]
+                      ).filter((categoria) => {
+                        const length2 = itensProdutoMap[setor][secao][
+                          categoria
+                        ].filter(
+                          (itemProd) =>
+                            // Filter items based on the search query (check if the query is part of the product name or other relevant fields)
+                            itemProd.prodNome
+                              .toLowerCase()
+                              .includes(displayProdutos.toLowerCase()) ||
+                            itemProd.prodMarca
+                              .toLowerCase()
+                              .includes(displayProdutos.toLowerCase()) ||
+                            itemProd.qntCompra
+                              .toString()
+                              .includes(displayProdutos) || // Include quantity filter
+                            itemProd.qntRestante
+                              .toString()
+                              .includes(displayProdutos) // Include remaining quantity filter
+                        ).length;
+                        return length2 > 0;
+                      }).length;
+                      return length1 > 0;
+                    })
+                    .map((secao) => (
+                      <Box>
+                        <Typography
+                          variant={isMobile ? "h5" : "h4"}
+                          sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            marginY: "1.5rem",
+                            color: "gray",
+                          }}
+                        >
+                          {secao}
+                        </Typography>
+                        <Box sx={{ p: "2rem" }}>
+                          {Object.keys(itensProdutoMap[setor][secao])
+                            .filter((categoria) => {
+                              const length = itensProdutoMap[setor][secao][
+                                categoria
+                              ].filter(
+                                (itemProd) =>
+                                  // Filter items based on the search query (check if the query is part of the product name or other relevant fields)
+                                  itemProd.prodNome
+                                    .toLowerCase()
+                                    .includes(displayProdutos.toLowerCase()) ||
+                                  itemProd.prodMarca
+                                    .toLowerCase()
+                                    .includes(displayProdutos.toLowerCase()) ||
+                                  itemProd.qntCompra
+                                    .toString()
+                                    .includes(displayProdutos) || // Include quantity filter
+                                  itemProd.qntRestante
+                                    .toString()
+                                    .includes(displayProdutos) // Include remaining quantity filter
+                              ).length;
+                              return length > 0;
+                            })
+                            .map((categoria) => (
+                              <Box>
+                                <Typography
+                                  variant={isMobile ? "h6" : "h4"}
+                                  sx={{ fontSize: "1.5rem" }}
+                                >
+                                  {categoria}
+                                </Typography>
+                                <List>
+                                  {itensProdutoMap[setor][secao][categoria]
+                                    .filter(
+                                      (itemProd) =>
+                                        // Filter items based on the search query (check if the query is part of the product name or other relevant fields)
+                                        itemProd.prodNome
+                                          .toLowerCase()
+                                          .includes(
+                                            displayProdutos.toLowerCase()
+                                          ) ||
+                                        itemProd.prodMarca
+                                          .toLowerCase()
+                                          .includes(
+                                            displayProdutos.toLowerCase()
+                                          ) ||
+                                        itemProd.qntCompra
+                                          .toString()
+                                          .includes(displayProdutos) || // Include quantity filter
+                                        itemProd.qntRestante
+                                          .toString()
+                                          .includes(displayProdutos) // Include remaining quantity filter
+                                    )
+                                    .map((itemProd: ItemProduto) => (
+                                      <ListItem
+                                        sx={{
+                                          display: "flex",
+                                          flexDirection: "column",
+                                          marginBottom: 2,
+                                          border: "1px solid black",
+                                        }}
                                       >
-                                        <Checkbox
-                                          value={itemProd.itemId}
-                                          checked={
-                                            itensProduto.listItemProduto.some(
-                                              (item) =>
-                                                item.itemId === itemProd.itemId
-                                            ) && itemProd.itemId !== 0
+                                        <ListItemButton
+                                          onClick={() =>
+                                            handleCheckBoxClick(itemProd)
                                           }
-                                          color="secondary"
-                                        />
-                                        <Box
-                                          sx={{
-                                            display: "flex",
-                                            flexDirection: "column",
-                                          }}
                                         >
-                                          <ListItemText
-                                            sx={{ textAlign: "center" }}
+                                          <Checkbox
+                                            value={itemProd.itemId}
+                                            checked={
+                                              itensProduto.listItemProduto.some(
+                                                (item) =>
+                                                  item.itemId ===
+                                                  itemProd.itemId
+                                              ) && itemProd.itemId !== 0
+                                            }
+                                            color="secondary"
+                                          />
+                                          <Box
+                                            sx={{
+                                              display: "flex",
+                                              flexDirection: "column",
+                                            }}
                                           >
-                                            {itemProd.prodNome}{" "}
-                                            {itemProd.prodMarca}
-                                          </ListItemText>
-                                          <ListItemText
-                                            sx={{ fontSize: "14px" }}
-                                          >
-                                            <Typography
-                                              variant="body2"
-                                              sx={{
-                                                fontSize: {
-                                                  xs: "12px",
-                                                  sm: "16px",
-                                                },
-                                                lineHeight: "1.5",
-                                              }}
+                                            <ListItemText
+                                              sx={{ textAlign: "center" }}
                                             >
-                                              - Quantidade de Compra:{" "}
-                                              {itemProd.qntCompra}{" "}
-                                              {itemProd.prodUnidade}
-                                              <br />- Restante do Item:{" "}
-                                              {itemProd.qntRestante}{" "}
-                                              {itemProd.prodUnidade}
-                                              <br />- Vencimento do Item:{" "}
-                                              {itemProd.vencimento
-                                                ? new Date(
-                                                    itemProd.vencimento
-                                                  ).toLocaleDateString()
-                                                : "Não especificado"}
-                                            </Typography>
-                                          </ListItemText>
-                                        </Box>
-                                      </ListItemButton>
-                                      {itemProd.itemId === 0 ? (
-                                        <></>
-                                      ) : (
-                                        <Box>
-                                          {!itemBoxOpen[itemProd.itemId] ? (
-                                            <Button
-                                              onClick={() => {
-                                                handleItemBoxOpen(itemProd);
-                                                setDisplayProdutos("");
-                                              }}
-                                              color="secondary"
+                                              {itemProd.prodNome}{" "}
+                                              {itemProd.prodMarca}
+                                            </ListItemText>
+                                            <ListItemText
+                                              sx={{ fontSize: "14px" }}
                                             >
-                                              Mostrar mais
-                                            </Button>
-                                          ) : (
-                                            <Box>
-                                              <FormControl></FormControl>
-                                              <FormControl
-                                                fullWidth
-                                                margin="dense"
+                                              <Typography
+                                                variant="body2"
+                                                sx={{
+                                                  fontSize: {
+                                                    xs: "12px",
+                                                    sm: "16px",
+                                                  },
+                                                  lineHeight: "1.5",
+                                                }}
                                               >
-                                                <TextField
-                                                  variant="outlined"
-                                                  onChange={(e) =>
-                                                    handleCompraChange(
-                                                      itemProd.itemId,
-                                                      Number(e.target.value)
-                                                    )
-                                                  }
-                                                  label="Quantidade Item de Compra"
-                                                />
-                                              </FormControl>
-                                              <FormControl
-                                                fullWidth
-                                                margin="dense"
+                                                - Quantidade de Compra:{" "}
+                                                {itemProd.qntCompra}{" "}
+                                                {itemProd.prodUnidade}
+                                                <br />- Restante do Item:{" "}
+                                                {itemProd.qntRestante}{" "}
+                                                {itemProd.prodUnidade}
+                                                <br />- Vencimento do Item:{" "}
+                                                {itemProd.vencimento
+                                                  ? new Date(
+                                                      itemProd.vencimento
+                                                    ).toLocaleDateString()
+                                                  : "Não especificado"}
+                                              </Typography>
+                                            </ListItemText>
+                                          </Box>
+                                        </ListItemButton>
+                                        {itemProd.itemId === 0 ? (
+                                          <></>
+                                        ) : (
+                                          <Box>
+                                            {!itemBoxOpen[itemProd.itemId] ? (
+                                              <Button
+                                                onClick={() => {
+                                                  handleItemBoxOpen(itemProd);
+                                                  setDisplayProdutos("");
+                                                }}
+                                                color="secondary"
                                               >
-                                                <TextField
-                                                  variant="outlined"
-                                                  onChange={(e) =>
-                                                    handleRestanteChange(
-                                                      itemProd.itemId,
-                                                      Number(e.target.value)
-                                                    )
-                                                  }
-                                                  label="Quantidade Item Restante"
-                                                />
-                                              </FormControl>
-                                              <LocalizationProvider
-                                                dateAdapter={AdapterDayjs}
-                                              >
+                                                Mostrar mais
+                                              </Button>
+                                            ) : (
+                                              <Box>
+                                                <FormControl></FormControl>
                                                 <FormControl
                                                   fullWidth
                                                   margin="dense"
                                                 >
-                                                  <DatePicker
-                                                    label="Data do Vencimento"
-                                                    format="DD/MM/YYYY"
-                                                    closeOnSelect
-                                                    onChange={(newDate) =>
-                                                      handleDateChange(
+                                                  <TextField
+                                                    variant="outlined"
+                                                    onChange={(e) =>
+                                                      handleCompraChange(
                                                         itemProd.itemId,
-                                                        newDate
+                                                        Number(e.target.value)
                                                       )
                                                     }
+                                                    label="Quantidade Item de Compra"
                                                   />
                                                 </FormControl>
-                                              </LocalizationProvider>
-                                              <Box
-                                                sx={{
-                                                  width: "100%",
-                                                  display: "flex",
-                                                  flexDirection: "row",
-                                                  alignItems: "center",
-                                                  justifyContent: "flex-end",
-                                                  gap: 1,
-                                                  padding: 1,
-                                                }}
-                                              >
-                                                <Button
-                                                  onClick={() =>
-                                                    handleItemBoxSave(itemProd)
-                                                  }
+                                                <FormControl
+                                                  fullWidth
+                                                  margin="dense"
+                                                >
+                                                  <TextField
+                                                    variant="outlined"
+                                                    onChange={(e) =>
+                                                      handleRestanteChange(
+                                                        itemProd.itemId,
+                                                        Number(e.target.value)
+                                                      )
+                                                    }
+                                                    label="Quantidade Item Restante"
+                                                  />
+                                                </FormControl>
+                                                <LocalizationProvider
+                                                  dateAdapter={AdapterDayjs}
+                                                >
+                                                  <FormControl
+                                                    fullWidth
+                                                    margin="dense"
+                                                  >
+                                                    <DatePicker
+                                                      label="Data do Vencimento"
+                                                      format="DD/MM/YYYY"
+                                                      closeOnSelect
+                                                      onChange={(newDate) =>
+                                                        handleDateChange(
+                                                          itemProd.itemId,
+                                                          newDate
+                                                        )
+                                                      }
+                                                    />
+                                                  </FormControl>
+                                                </LocalizationProvider>
+                                                <Box
                                                   sx={{
-                                                    color: "white",
-                                                    backgroundColor: "black",
+                                                    width: "100%",
+                                                    display: "flex",
+                                                    flexDirection: "row",
+                                                    alignItems: "center",
+                                                    justifyContent: "flex-end",
+                                                    gap: 1,
+                                                    padding: 1,
                                                   }}
                                                 >
-                                                  Salvar
-                                                </Button>
-                                                <Button
-                                                  onClick={() =>
-                                                    handleItemBoxClose(itemProd)
-                                                  }
-                                                  sx={{
-                                                    color: "white",
-                                                    backgroundColor: "black",
-                                                  }}
-                                                >
-                                                  Cancelar/Ocultar
-                                                </Button>
+                                                  <Button
+                                                    onClick={() =>
+                                                      handleItemBoxSave(
+                                                        itemProd
+                                                      )
+                                                    }
+                                                    sx={{
+                                                      color: "white",
+                                                      backgroundColor: "black",
+                                                    }}
+                                                  >
+                                                    Salvar
+                                                  </Button>
+                                                  <Button
+                                                    onClick={() =>
+                                                      handleItemBoxClose(
+                                                        itemProd
+                                                      )
+                                                    }
+                                                    sx={{
+                                                      color: "white",
+                                                      backgroundColor: "black",
+                                                    }}
+                                                  >
+                                                    Cancelar/Ocultar
+                                                  </Button>
+                                                </Box>
                                               </Box>
-                                            </Box>
-                                          )}
-                                        </Box>
-                                      )}
-                                    </ListItem>
-                                  ))}
-                              </List>
-                            </Box>
-                          )
-                        )}
+                                            )}
+                                          </Box>
+                                        )}
+                                      </ListItem>
+                                    ))}
+                                </List>
+                              </Box>
+                            ))}
+                        </Box>
                       </Box>
-                    </Box>
-                  ))}
+                    ))}
                   <Button
                     onClick={() => {
                       handleSetorBoxClose(setor);
