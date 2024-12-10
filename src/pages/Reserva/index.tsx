@@ -18,10 +18,26 @@ import ScrollableContainer from "./ScrollableContainer";
 import { COMPRA_ROUTES } from "../../config/apiRoutes";
 
 const spaces = [
-  { id: 1, name: "Campo 2 (MAX: 20 PESSOAS)", image: require("../../assets/campo2.png") },
-  { id: 2, name: "Campo 3 (MAX: 30 PESSOAS)", image: require("../../assets/campo3.png") },
-  { id: 3, name: "Campo 4 (MAX: 20 PESSOAS)", image: require("../../assets/campo4.png") },
-  { id: 4, name: "Campo 5 (MAX: 50 PESSOAS)", image: require("../../assets/campo5.png") },
+  {
+    id: 1,
+    name: "Campo 2 (MAX: 20 PESSOAS)",
+    image: require("../../assets/campo2.png"),
+  },
+  {
+    id: 2,
+    name: "Campo 3 (MAX: 30 PESSOAS)",
+    image: require("../../assets/campo3.png"),
+  },
+  {
+    id: 3,
+    name: "Campo 4 (MAX: 20 PESSOAS)",
+    image: require("../../assets/campo4.png"),
+  },
+  {
+    id: 4,
+    name: "Campo 5 (MAX: 50 PESSOAS)",
+    image: require("../../assets/campo5.png"),
+  },
 ];
 
 const cakes = [
@@ -384,9 +400,10 @@ const Reserva: React.FC = () => {
           Enviar Reserva
         </Button>
         <Typography variant="body1" gutterBottom>
-          *Depois de clicar em 'ENVIAR RESERVA', você será redirecionado ao
-          WhatsApp do nosso gestor de reservas. Envie a mensagem automática ao
-          gestor.*
+          *Depois de clicar em 'ENVIAR RESERVA', sua reserva será enviado ao
+          nosso gestor de reserva. Para confirmação da reserva, ele irá entrar
+          em contato com você. Caso tenha algum problema, entre em contato com o
+          número 83991409999!*
         </Typography>
       </Box>
     </CenteredBox>
