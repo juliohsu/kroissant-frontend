@@ -401,9 +401,10 @@ const Reserva: React.FC = () => {
         </Button>
         <Typography variant="body1" gutterBottom>
           *Depois de clicar em 'ENVIAR RESERVA', sua reserva será enviado ao
-          nosso gestor de reserva. Para confirmação da reserva, ele irá entrar
-          em contato com você. Caso tenha algum problema, entre em contato com o
-          número 83991409999!*
+          nosso gestor de reserva, quem irá entrar em contato com você.
+          <br />
+          Caso tenha algum problema ou demora, conta com ele via WhatsApp
+          +5583991409999.*
         </Typography>
       </Box>
     </CenteredBox>
