@@ -18,10 +18,10 @@ import ScrollableContainer from "./ScrollableContainer";
 import { COMPRA_ROUTES } from "../../config/apiRoutes";
 
 const spaces = [
-  { id: 1, name: "Campo 2", image: require("../../assets/campo2.png") },
-  { id: 2, name: "Campo 3", image: require("../../assets/campo3.png") },
-  { id: 3, name: "Campo 4", image: require("../../assets/campo4.png") },
-  { id: 4, name: "Campo 5", image: require("../../assets/campo5.png") },
+  { id: 1, name: "Campo 2 (MAX: 20 PESSOAS)", image: require("../../assets/campo2.png") },
+  { id: 2, name: "Campo 3 (MAX: 30 PESSOAS)", image: require("../../assets/campo3.png") },
+  { id: 3, name: "Campo 4 (MAX: 20 PESSOAS)", image: require("../../assets/campo4.png") },
+  { id: 4, name: "Campo 5 (MAX: 50 PESSOAS)", image: require("../../assets/campo5.png") },
 ];
 
 const cakes = [
