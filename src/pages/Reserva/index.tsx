@@ -80,7 +80,7 @@ const CenteredBox = styled(Box)({
 
 const Reserva: React.FC = () => {
   const [selectedSpace, setSelectedSpace] = useState<number | null>(null);
-  const [selectedCake, setSelectedCake] = useState<number | null>(1);
+  const [selectedCake, setSelectedCake] = useState<number | null>(null);
   const [selectedDecor, setSelectedDecor] = useState<number | null>(null);
   const [cakeSize, setCakeSize] = useState<string>("");
   const [formData, setFormData] = useState({
