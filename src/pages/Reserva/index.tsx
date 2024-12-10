@@ -20,22 +20,22 @@ import { COMPRA_ROUTES } from "../../config/apiRoutes";
 const spaces = [
   {
     id: 1,
-    name: `Campo 2\n(MAX: 20 PESSOAS)`,
+    name: `Campo 2 (MAX: 20 PESSOAS)`,
     image: require("../../assets/campo2.png"),
   },
   {
     id: 2,
-    name: `Campo 3\n(MAX: 30 PESSOAS)`,
+    name: `Campo 3 (MAX: 30 PESSOAS)`,
     image: require("../../assets/campo3.png"),
   },
   {
     id: 3,
-    name: "Campo 4\n(MAX: 20 PESSOAS)",
+    name: "Campo 4 (MAX: 20 PESSOAS)",
     image: require("../../assets/campo4.png"),
   },
   {
     id: 4,
-    name: "Campo 5\n(MAX: 50 PESSOAS)",
+    name: "Campo 5 (MAX: 50 PESSOAS)",
     image: require("../../assets/campo5.png"),
   },
 ];
@@ -194,15 +194,16 @@ const Reserva: React.FC = () => {
       });
       if (!response.ok) {
         alert(
-          "Reserva enviado com erro, por favor entre em contato com o suporte +5583991409999"
+          "Servidor da reserva retornado com erro, por favor entre em contato com o suporte +5583991409999"
+        );
+      } else {
+        alert(
+          "Reserva feita com sucesso! Agora só aguardar o gestor entrar em contato :)"
         );
       }
-      alert(
-        "Reserva feita com sucesso! Agora só aguardar o gestor entrar em contato :)"
-      );
     } catch (err) {
       alert(
-        "Erro ao concluir a reserva, entre em contato com o suporte +5583991409999"
+        "Erro ao enviar a reserva, entre em contato com o suporte +5583991409999"
       );
     }
 
