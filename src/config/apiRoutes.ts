@@ -1,5 +1,5 @@
-/* const BASE_URL = "https://adaa72c02aef.ngrok.app";
- */const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://84a664826657.ngrok.app";
+/* const BASE_URL = "http://localhost:5000"; */
 
 
 export const COMPRA_ROUTES = {
