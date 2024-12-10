@@ -401,9 +401,9 @@ const Reserva: React.FC = () => {
         </Button>
         <Typography variant="body1" gutterBottom>
           *Depois de clicar em 'ENVIAR RESERVA', sua reserva será enviado ao
-          nosso gestor de reserva, quem irá entrar em contato com você.
+          nosso gestor de reserva.
           <br />
-          Caso tenha algum problema ou demora, conta com ele via WhatsApp
+          Caso não for retornado dentro de 3 horas, conta com ele via WhatsApp
           +5583991409999.*
         </Typography>
       </Box>
