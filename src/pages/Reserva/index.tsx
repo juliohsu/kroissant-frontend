@@ -322,7 +322,9 @@ const Reserva: React.FC = () => {
           margin="normal"
           sx={{ marginTop: "5px", width: "100%", maxWidth: "600px" }}
         >
-          <InputLabel id="cake-size-label">Tamanho do Bolo</InputLabel>
+          <Typography variant="h5" gutterBottom>
+            Escolhe o tamanho do bolo
+          </Typography>
           <Select
             labelId="cake-size-label"
             value={cakeSize}
