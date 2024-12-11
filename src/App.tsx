@@ -9,10 +9,17 @@ import CompraDomain from "./domains/CompraDomain";
 import LandingDomain from "./domains/LandingDomain";
 
 const App: React.FC = () => {
-  const predomain = window.location.hostname.split(".")[0];
+  const firstDomain = window.location.hostname.split(".")[0];
+  let secondDomain = window.location.hostname.split(".")[1];
+  let trueDomain = "";
+  if (firstDomain === "www") {
+    trueDomain = secondDomain;
+  } else {
+    trueDomain = firstDomain;
+  }
   React.useEffect(() => {
-    console.log(predomain);
-    switch (predomain) {
+    console.log(trueDomain);
+    switch (trueDomain) {
       case "compra":
         document.title = "KROISSANT - Compra 24hrs";
         break;
@@ -20,7 +27,7 @@ const App: React.FC = () => {
         document.title = "KROISSANT - Croissant Autêntico";
         break;
     }
-  }, [predomain]);
+  }, [firstDomain]);
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -28,7 +35,7 @@ const App: React.FC = () => {
         <NavBar />
         <Box>
           {(() => {
-            switch (predomain) {
+            switch (trueDomain) {
               case "compra":
                 return <CompraDomain />;
               default:

@@ -33,14 +33,21 @@ const NavBar: React.FC = () => {
   const location = useLocation();
   const showNav = !location.pathname.startsWith("/lista-compra");
   const documentTitle = document.title;
-  const predomain = window.location.hostname.split(".")[0];
+  const firstDomain = window.location.hostname.split(".")[0];
+  const secondDomain = window.location.hostname.split(".")[1];
+  let trueDomain = "";
+  if (firstDomain === "www") {
+    trueDomain = secondDomain;
+  } else {
+    trueDomain = firstDomain;
+  }
   const [sideDrawer, setSideDrawer] = useState(false);
 
   const handleSideDrawer = (bool: boolean) => {
     setSideDrawer(bool);
   };
 
-  return predomain !== "compra" ? (
+  return trueDomain !== "compra" ? (
     <AppBar position="sticky" sx={{ zIndex: theme.zIndex.drawer + 1 }}>
       <Toolbar sx={{ flexDirection: "column", alignItems: "center" }}>
         {/* Logo */}
