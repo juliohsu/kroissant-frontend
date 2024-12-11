@@ -20,28 +20,36 @@ import { COMPRA_ROUTES } from "../../../../config/apiRoutes";
 const spaces = [
   {
     id: 1,
-    name: `Campo 2 (MAX: 20 PESSOAS)`,
+    name: `Campo 2`,
+    capacity: "MAX: 20 pessoas",
     image: require("../../../../assets/campo2.png"),
   },
   {
     id: 2,
-    name: `Campo 3 (MAX: 30 PESSOAS)`,
+    name: `Campo 3`,
+    capacity: "MAX: 30 pessoas",
     image: require("../../../../assets/campo3.png"),
   },
   {
     id: 3,
-    name: "Campo 4 (MAX: 20 PESSOAS)",
+    name: "Campo 4",
+    capacity: "MAX: 25 pessoas",
     image: require("../../../../assets/campo4.png"),
   },
   {
     id: 4,
-    name: "Campo 5 (MAX: 50 PESSOAS)",
+    name: "Campo 5",
+    capacity: "MAX: 50 pessoas",
     image: require("../../../../assets/campo5.png"),
   },
 ];
 
 const cakes = [
-  { id: 1, name: "Mumu", image: require("../../../../assets/chiffoncake-mumu.jpg") },
+  {
+    id: 1,
+    name: "Mumu",
+    image: require("../../../../assets/chiffoncake-mumu.jpg"),
+  },
   {
     id: 2,
     name: "Morango",
@@ -60,13 +68,21 @@ const cakes = [
 ];
 
 const decors = [
-  { id: 1, name: "Verde", image: require("../../../../assets/mesa-posta-verde.jpg") },
+  {
+    id: 1,
+    name: "Verde",
+    image: require("../../../../assets/mesa-posta-verde.jpg"),
+  },
   {
     id: 2,
     name: "Vermelho",
     image: require("../../../../assets/mesa-posta-vermelho.jpg"),
   },
-  { id: 3, name: "Preto", image: require("../../../../assets/mesa-posta-preto.jpg") },
+  {
+    id: 3,
+    name: "Preto",
+    image: require("../../../../assets/mesa-posta-preto.jpg"),
+  },
 ];
 
 const CenteredBox = styled(Box)({
@@ -245,6 +261,8 @@ const Reserva: React.FC = () => {
       <Typography variant="body1" gutterBottom>
         Escolha gratuitamente um dos nossos espaços exclusivos para tornar o seu
         evento inesquecível.
+        <br />
+        *OBS: tolerância para chegada na reserva 30mins, proibído levar comida e/ou bebida por fora.*
       </Typography>
       <ScrollableContainer
         id="spaces-container"
@@ -260,6 +278,7 @@ const Reserva: React.FC = () => {
               selected={selectedSpace === space.id}
               onClick={() => handleSpaceClick(space.id)}
             />
+            <Typography textAlign={"center"}>{space.capacity}</Typography>
           </Box>
         ))}
       </ScrollableContainer>
