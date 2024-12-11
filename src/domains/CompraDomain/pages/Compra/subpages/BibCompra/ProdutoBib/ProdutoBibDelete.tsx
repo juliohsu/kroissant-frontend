@@ -1,7 +1,7 @@
 import { Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, IconButton } from "@mui/material";
 import { useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { COMPRA_ROUTES } from "../../../../../config/apiRoutes";
+import { COMPRA_ROUTES } from "../../../../../../../config/apiRoutes";
 import { ProdutoDialogProps } from "interfaces/compraInterfaces";
 
 function ProdutoBibDelete({id, onCleanTextField}: ProdutoDialogProps) {

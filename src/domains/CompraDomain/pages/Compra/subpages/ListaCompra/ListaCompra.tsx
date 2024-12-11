@@ -16,7 +16,7 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs, { Dayjs } from "dayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers";
-import { COMPRA_ROUTES } from "../../../../config/apiRoutes";
+import { COMPRA_ROUTES } from "../../../../../../config/apiRoutes";
 import {
   ItemCompra,
   ItensCompra,

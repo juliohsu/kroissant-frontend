@@ -23,7 +23,7 @@ import {
   Produtos,
   Unidades,
 } from "interfaces/compraInterfaces";
-import { COMPRA_ROUTES } from "../../../../../config/apiRoutes";
+import { COMPRA_ROUTES } from "../../../../../../../config/apiRoutes";
 
 function ProdutoBibEdit({ id, onCleanTextField }: ProdutoDialogProps) {
   /* FRONTEND */

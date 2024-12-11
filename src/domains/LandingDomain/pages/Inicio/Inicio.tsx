@@ -1,8 +1,8 @@
 import React from 'react';
 import { Typography, Box, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import backgroundImage from '../../assets/inicio-bg.jpg'; // Update the path and filename accordingly
-import logoImage from '../../assets/inicio-logo.png'; // Update the path to your logo image
+import backgroundImage from '../../../../assets/inicio-bg.jpg'; // Update the path and filename accordingly
+import logoImage from '../../../../assets/inicio-logo.png'; // Update the path to your logo image
 
 const Inicio: React.FC = () => {
   const theme = useTheme();

@@ -15,58 +15,58 @@ import Space from "./Space";
 import Cake from "./Cake";
 import Decor from "./Decor";
 import ScrollableContainer from "./ScrollableContainer";
-import { COMPRA_ROUTES } from "../../config/apiRoutes";
+import { COMPRA_ROUTES } from "../../../../config/apiRoutes";
 
 const spaces = [
   {
     id: 1,
     name: `Campo 2 (MAX: 20 PESSOAS)`,
-    image: require("../../assets/campo2.png"),
+    image: require("../../../../assets/campo2.png"),
   },
   {
     id: 2,
     name: `Campo 3 (MAX: 30 PESSOAS)`,
-    image: require("../../assets/campo3.png"),
+    image: require("../../../../assets/campo3.png"),
   },
   {
     id: 3,
     name: "Campo 4 (MAX: 20 PESSOAS)",
-    image: require("../../assets/campo4.png"),
+    image: require("../../../../assets/campo4.png"),
   },
   {
     id: 4,
     name: "Campo 5 (MAX: 50 PESSOAS)",
-    image: require("../../assets/campo5.png"),
+    image: require("../../../../assets/campo5.png"),
   },
 ];
 
 const cakes = [
-  { id: 1, name: "Mumu", image: require("../../assets/chiffoncake-mumu.jpg") },
+  { id: 1, name: "Mumu", image: require("../../../../assets/chiffoncake-mumu.jpg") },
   {
     id: 2,
     name: "Morango",
-    image: require("../../assets/chiffoncake-morango.jpeg"),
+    image: require("../../../../assets/chiffoncake-morango.jpeg"),
   },
   {
     id: 3,
     name: "Belgano",
-    image: require("../../assets/chiffoncake-belgano.jpeg"),
+    image: require("../../../../assets/chiffoncake-belgano.jpeg"),
   },
   {
     id: 4,
     name: "Snickers",
-    image: require("../../assets/chiffoncake-snickers.jpeg"),
+    image: require("../../../../assets/chiffoncake-snickers.jpeg"),
   },
 ];
 
 const decors = [
-  { id: 1, name: "Verde", image: require("../../assets/mesa-posta-verde.jpg") },
+  { id: 1, name: "Verde", image: require("../../../../assets/mesa-posta-verde.jpg") },
   {
     id: 2,
     name: "Vermelho",
-    image: require("../../assets/mesa-posta-vermelho.jpg"),
+    image: require("../../../../assets/mesa-posta-vermelho.jpg"),
   },
-  { id: 3, name: "Preto", image: require("../../assets/mesa-posta-preto.jpg") },
+  { id: 3, name: "Preto", image: require("../../../../assets/mesa-posta-preto.jpg") },
 ];
 
 const CenteredBox = styled(Box)({

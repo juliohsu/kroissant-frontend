@@ -28,7 +28,7 @@ import {
   Unidade,
   Unidades,
 } from "interfaces/compraInterfaces";
-import { COMPRA_ROUTES } from "../../../../../config/apiRoutes";
+import { COMPRA_ROUTES } from "../../../../../../../config/apiRoutes";
 import SearchIcon from "@mui/icons-material/Search";
 import ProdutoBibDelete from "./ProdutoBibDelete";
 import ProdutoBibEdit from "./ProdutoBibEdit";
