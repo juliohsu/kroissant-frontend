@@ -195,7 +195,7 @@ function ListaCompra({ onOpen }: ListaCompraProps) {
                   {Object.keys(dataMap[fornecedorSection]).map(
                     (foodSection) => (
                       <Box key={foodSection}>
-                        <h4 style={{ color: "gray" }}>
+                        <h4 style={{ color: "#555555" }}>
                           {foodSection.toUpperCase()}
                         </h4>
                         {Object.keys(
@@ -260,7 +260,7 @@ function ListaCompra({ onOpen }: ListaCompraProps) {
                                           color={
                                             item.itemComprado === 1
                                               ? "gray"
-                                              : "black"
+                                              : "#555555"
                                           }
                                         >
                                           [ Resta Apróx.: {item.itemQntRestante}

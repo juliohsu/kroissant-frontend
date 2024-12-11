@@ -258,12 +258,20 @@ const Reserva: React.FC = () => {
       <Typography variant="h4" gutterBottom>
         Espaços
       </Typography>
-      <Typography variant="body1" gutterBottom>
+      <Typography variant="body1" gutterBottom textAlign={"center"}>
+        <br />
+        *REGRA 1: tolerância para chegada na reserva com atraso no máximo de
+        30mins*
+        <br />
+        *REGRA 2: proibído levar comida e/ou bebida por fora. Exceto bolos
+        aniversariantes.*
+        <br />
+        *REGRA 3: caso tiver mesas sobrando no espaço, os clientes normais podem
+        sentar.*
+        <br />
+        <br />
         Escolha gratuitamente um dos nossos espaços exclusivos para tornar o seu
         evento inesquecível.
-        <br />
-        *OBS: tolerância para chegada na reserva 30mins, proibído levar comida
-        e/ou bebida por fora.*
       </Typography>
       <ScrollableContainer
         id="spaces-container"
@@ -424,10 +432,9 @@ const Reserva: React.FC = () => {
         </Button>
         <Typography variant="body1" gutterBottom marginTop={"10px"}>
           Ao clicar em 'ENVIAR RESERVA', a reserva será enviado ao gestor de
-          reservas para concluir a reserva.
-          <br />
-          *Caso não for retornado dentro de 3 horas, pode contar com ele via
-          whatsapp 8399149999.*
+          reservas para concluir a reserva. *Caso não for retornado dentro de 3
+          horas ou se tiver dúvidas, pode contar com ele via whatsapp
+          8399149999.*
         </Typography>
       </Box>
     </CenteredBox>
