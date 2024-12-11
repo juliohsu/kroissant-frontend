@@ -11,6 +11,7 @@ import LandingDomain from "./domains/LandingDomain";
 const App: React.FC = () => {
   const predomain = window.location.hostname.split(".")[0];
   React.useEffect(() => {
+    console.log(predomain);
     switch (predomain) {
       case "compra":
         document.title = "KROISSANT - Compra 24hrs";
