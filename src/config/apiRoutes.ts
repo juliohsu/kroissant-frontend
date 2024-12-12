@@ -1,4 +1,4 @@
-const BASE_URL = "https://d1b927253ee9.ngrok.app";
+const BASE_URL = "https://6335205d9d58.ngrok.app";
 /* const BASE_URL = "http://localhost:5000"; */
 
 
