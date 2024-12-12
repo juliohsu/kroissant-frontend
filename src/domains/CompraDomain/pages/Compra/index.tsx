@@ -2,8 +2,8 @@ import { useState } from "react";
 import ListaCompra from "./subpages/ListaCompra/ListaCompra";
 import { Box } from "@mui/material";
 import CameraCapture from "./components/Camera/CameraCapture";
-import { COMPRA_ROUTES } from "./../../config/apiRoutes";
-import { dataURLtoBlob } from "../../utils/helper";
+import { COMPRA_ROUTES } from "./../../../../config/apiRoutes";
+import { dataURLtoBlob } from "../../../../utils/helper";
 
 function Compra() {
   const [takePhoto, setTakePhoto] = useState(false);

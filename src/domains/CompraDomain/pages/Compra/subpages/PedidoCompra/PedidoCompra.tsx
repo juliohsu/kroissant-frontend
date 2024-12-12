@@ -20,7 +20,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { Dayjs } from "dayjs";
 import { ExpandMore, ExpandLess } from "@mui/icons-material";
 
-import { COMPRA_ROUTES } from "../../../../config/apiRoutes";
+import { COMPRA_ROUTES } from "../../../../../../config/apiRoutes";
 import {
   Categoria,
   Categorias,
@@ -31,7 +31,7 @@ import {
   Secoes,
   Setor,
   Setores,
-} from "../../../../interfaces/compraInterfaces";
+} from "../../../../../../interfaces/compraInterfaces";
 
 function PedidoCompra() {
   /* FRONTEND */

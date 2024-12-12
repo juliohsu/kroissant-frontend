@@ -1,7 +1,6 @@
 const BASE_URL = "https://6335205d9d58.ngrok.app";
 /* const BASE_URL = "http://localhost:5000"; */
 
-
 export const COMPRA_ROUTES = {
   SETOR: () => `${BASE_URL}/setor`,
   SECAO: () => `${BASE_URL}/secao`,

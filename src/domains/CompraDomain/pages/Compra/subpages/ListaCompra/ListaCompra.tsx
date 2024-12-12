@@ -16,7 +16,7 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs, { Dayjs } from "dayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers";
-import { COMPRA_ROUTES } from "../../../../config/apiRoutes";
+import { COMPRA_ROUTES } from "../../../../../../config/apiRoutes";
 import {
   ItemCompra,
   ItensCompra,
@@ -195,7 +195,7 @@ function ListaCompra({ onOpen }: ListaCompraProps) {
                   {Object.keys(dataMap[fornecedorSection]).map(
                     (foodSection) => (
                       <Box key={foodSection}>
-                        <h4 style={{ color: "gray" }}>
+                        <h4 style={{ color: "#555555" }}>
                           {foodSection.toUpperCase()}
                         </h4>
                         {Object.keys(
@@ -260,7 +260,7 @@ function ListaCompra({ onOpen }: ListaCompraProps) {
                                           color={
                                             item.itemComprado === 1
                                               ? "gray"
-                                              : "black"
+                                              : "#555555"
                                           }
                                         >
                                           [ Resta Apróx.: {item.itemQntRestante}

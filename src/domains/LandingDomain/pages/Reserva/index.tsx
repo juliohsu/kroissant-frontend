@@ -15,58 +15,74 @@ import Space from "./Space";
 import Cake from "./Cake";
 import Decor from "./Decor";
 import ScrollableContainer from "./ScrollableContainer";
-import { COMPRA_ROUTES } from "../../config/apiRoutes";
+import { COMPRA_ROUTES } from "../../../../config/apiRoutes";
 
 const spaces = [
   {
     id: 1,
-    name: `Campo 2 (MAX: 20 PESSOAS)`,
-    image: require("../../assets/campo2.png"),
+    name: `Campo 2`,
+    capacity: "MAX: 20 pessoas",
+    image: require("../../../../assets/campo2.png"),
   },
   {
     id: 2,
-    name: `Campo 3 (MAX: 30 PESSOAS)`,
-    image: require("../../assets/campo3.png"),
+    name: `Campo 3`,
+    capacity: "MAX: 30 pessoas",
+    image: require("../../../../assets/campo3.png"),
   },
   {
     id: 3,
-    name: "Campo 4 (MAX: 20 PESSOAS)",
-    image: require("../../assets/campo4.png"),
+    name: "Campo 4",
+    capacity: "MAX: 25 pessoas",
+    image: require("../../../../assets/campo4.png"),
   },
   {
     id: 4,
-    name: "Campo 5 (MAX: 50 PESSOAS)",
-    image: require("../../assets/campo5.png"),
+    name: "Campo 5",
+    capacity: "MAX: 50 pessoas",
+    image: require("../../../../assets/campo5.png"),
   },
 ];
 
 const cakes = [
-  { id: 1, name: "Mumu", image: require("../../assets/chiffoncake-mumu.jpg") },
+  {
+    id: 1,
+    name: "Mumu",
+    image: require("../../../../assets/chiffoncake-mumu.jpg"),
+  },
   {
     id: 2,
     name: "Morango",
-    image: require("../../assets/chiffoncake-morango.jpeg"),
+    image: require("../../../../assets/chiffoncake-morango.jpeg"),
   },
   {
     id: 3,
     name: "Belgano",
-    image: require("../../assets/chiffoncake-belgano.jpeg"),
+    image: require("../../../../assets/chiffoncake-belgano.jpeg"),
   },
   {
     id: 4,
     name: "Snickers",
-    image: require("../../assets/chiffoncake-snickers.jpeg"),
+    image: require("../../../../assets/chiffoncake-snickers.jpeg"),
   },
 ];
 
 const decors = [
-  { id: 1, name: "Verde", image: require("../../assets/mesa-posta-verde.jpg") },
+  {
+    id: 1,
+    name: "Verde",
+    image: require("../../../../assets/mesa-posta-verde.jpg"),
+  },
   {
     id: 2,
     name: "Vermelho",
-    image: require("../../assets/mesa-posta-vermelho.jpg"),
+    image: require("../../../../assets/mesa-posta-vermelho.jpg"),
   },
-  { id: 3, name: "Preto", image: require("../../assets/mesa-posta-preto.jpg") },
+  {
+    id: 3,
+    name: "Preto",
+    image: require("../../../../assets/mesa-posta-preto.jpg"),
+  },
 ];
 
 const CenteredBox = styled(Box)({
@@ -242,7 +258,18 @@ const Reserva: React.FC = () => {
       <Typography variant="h4" gutterBottom>
         Espaços
       </Typography>
-      <Typography variant="body1" gutterBottom>
+      <Typography variant="body1" gutterBottom textAlign={"center"}>
+        <br />
+        *REGRA 1: tolerância para chegada na reserva com atraso no máximo de
+        30mins*
+        <br />
+        *REGRA 2: proibído levar comida e/ou bebida por fora. Exceto bolos
+        aniversariantes.*
+        <br />
+        *REGRA 3: caso tiver mesas sobrando no espaço, os clientes normais podem
+        sentar.*
+        <br />
+        <br />
         Escolha gratuitamente um dos nossos espaços exclusivos para tornar o seu
         evento inesquecível.
       </Typography>
@@ -260,6 +287,7 @@ const Reserva: React.FC = () => {
               selected={selectedSpace === space.id}
               onClick={() => handleSpaceClick(space.id)}
             />
+            <Typography textAlign={"center"}>{space.capacity}</Typography>
           </Box>
         ))}
       </ScrollableContainer>
@@ -402,12 +430,11 @@ const Reserva: React.FC = () => {
         >
           Enviar Reserva
         </Button>
-        <Typography variant="body1" gutterBottom>
-          *Depois de clicar em 'ENVIAR RESERVA', sua reserva será enviado ao
-          nosso gestor de reserva.
-          <br />
-          Caso não for retornado dentro de 3 horas, conta com ele via WhatsApp
-          +5583991409999.*
+        <Typography variant="body1" gutterBottom marginTop={"10px"}>
+          Ao clicar em 'ENVIAR RESERVA', a reserva será enviado ao gestor de
+          reservas para concluir a reserva. *Caso não for retornado dentro de 3
+          horas ou se tiver dúvidas, pode contar com ele via whatsapp
+          8399149999.*
         </Typography>
       </Box>
     </CenteredBox>

@@ -1,36 +1,47 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import {  CssBaseline, Box } from "@mui/material";
+import { CssBaseline, Box } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme"; // Import the custom theme
 
 import NavBar from "./NavBar";
-
-import Inicio from "./pages/Inicio/Inicio";
-import Reserva from "./pages/Reserva";
-
-import Compra from "./pages/Compra";
-import PedidoCompra from "./pages/Compra/subpages/PedidoCompra/PedidoCompra";
-import ProdutoBib from "./pages/Compra/subpages/BibCompra/ProdutoBib/ProdutoBib";
+import React from "react";
+import CompraDomain from "./domains/CompraDomain";
+import LandingDomain from "./domains/LandingDomain";
 
 const App: React.FC = () => {
-
+  const firstDomain = window.location.hostname.split(".")[0];
+  let secondDomain = window.location.hostname.split(".")[1];
+  let trueDomain = "";
+  if (firstDomain === "www") {
+    trueDomain = secondDomain;
+  } else {
+    trueDomain = firstDomain;
+  }
+  React.useEffect(() => {
+    console.log(trueDomain);
+    switch (trueDomain) {
+      case "compra":
+        document.title = "KROISSANT - Compra 24hrs";
+        break;
+      default:
+        document.title = "KROISSANT - Croissant Autêntico";
+        break;
+    }
+  }, [firstDomain]);
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
         <NavBar />
         <Box>
-          <Routes>
-            <Route path="/" element={<Inicio />} />
-            <Route path="/reserva" element={<Reserva />} />
-            {/* Use a custom function to redirect to external URL */}
-            <Route path="/encomenda" element={<></>} />
-            {/* Use a custom function to redirect to external WhatsApp */}
-            <Route path="/whatsapp" element={<></>} />
-            <Route path="/lista-compra" element={<Compra />} />
-            <Route path="/lista-compra/pedido" element={<PedidoCompra />} />
-            <Route path="/lista-compra/biblioteca" element={<ProdutoBib />} />
-          </Routes>
+          {(() => {
+            switch (trueDomain) {
+              case "compra":
+                return <CompraDomain />;
+              default:
+                return <LandingDomain />;
+            }
+          })()}
         </Box>
       </Router>
     </ThemeProvider>
