@@ -1,4 +1,6 @@
-const BASE_URL = "https://134853d3d09b.ngrok.app";
+const BASE_URL = "https://server.kroissant.com.br/marca";
+
+// const BASE_URL = "https://134853d3d09b.ngrok.app";
 /* const BASE_URL = "http://localhost:5000"; */
 
 export const COMPRA_ROUTES = {
