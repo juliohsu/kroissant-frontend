@@ -13,6 +13,12 @@ import ListAltIcon from "@mui/icons-material/ListAlt";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 
 const NavBar: React.FC = () => {
+
+  const handleMenuRedirect = () => {
+    window.location.href =
+      "/menu.pdf";
+  };
+
   const handleEncomendaRedirect = () => {
     const message = "Olá, tudo bem? Quero fazer uma encomenda para...";
     const whatsappUrl = `https://wa.me/558321480945?text=${encodeURIComponent(
@@ -66,6 +72,9 @@ const NavBar: React.FC = () => {
         <Box sx={{ display: "flex", justifyContent: "center", mt: 1 }}>
           <Button color="inherit" component={Link} to="/">
             Inicio
+          </Button>
+          <Button color="inherit" onClick={handleMenuRedirect}>
+            Menu
           </Button>
           <Button color="inherit" component={Link} to="/reserva">
             Reserva
