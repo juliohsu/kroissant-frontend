@@ -13,10 +13,9 @@ import ListAltIcon from "@mui/icons-material/ListAlt";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 
 const NavBar: React.FC = () => {
-
   const handleMenuRedirect = () => {
     window.location.href =
-      "/menu.pdf";
+      "https://www.canva.com/design/DAGacCnJu3A/GGcmx7Yp04lFF6sCJpI2Lg/view?utm_content=DAGacCnJu3A&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=haeeabebebb";
   };
 
   const handleEncomendaRedirect = () => {
