@@ -21,19 +21,19 @@ const spaces = [
   {
     id: 1,
     name: `Campo 2`,
-    capacity: "MAX: 20 pessoas",
+    capacity: "MAX: 10 pessoas",
     image: require("../../../../assets/campo2.png"),
   },
   {
     id: 2,
     name: `Campo 3`,
-    capacity: "MAX: 30 pessoas",
+    capacity: "MAX: 20 pessoas",
     image: require("../../../../assets/campo3.png"),
   },
   {
     id: 3,
     name: "Campo 4",
-    capacity: "MAX: 25 pessoas",
+    capacity: "MAX: 30 pessoas",
     image: require("../../../../assets/campo4.png"),
   },
   {
