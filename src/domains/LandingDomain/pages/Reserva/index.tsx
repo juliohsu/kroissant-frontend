@@ -198,30 +198,30 @@ const Reserva: React.FC = () => {
 
     setError(null);
 
-    try {
-      const response = await fetch(COMPRA_ROUTES.RESERVA(), {
-        method: "POST",
-        headers: new Headers({
-          "bypass-tunnel-reminder": "69420",
-          "ngrok-skip-browser-warning": "69420",
-          "Content-Type": "application/json",
-        }),
-        body: JSON.stringify(templateData),
-      });
-      if (!response.ok) {
-        alert(
-          "Servidor da reserva retornado com erro, por favor entre em contato com o suporte +5583991409999"
-        );
-      } else {
-        alert(
-          "Reserva feita com sucesso! Agora só aguardar o gestor entrar em contato :)"
-        );
-      }
-    } catch (err) {
-      alert(
-        "Erro ao enviar a reserva, entre em contato com o suporte +5583991409999"
-      );
-    }
+    // try {
+    //   const response = await fetch(COMPRA_ROUTES.RESERVA(), {
+    //     method: "POST",
+    //     headers: new Headers({
+    //       "bypass-tunnel-reminder": "69420",
+    //       "ngrok-skip-browser-warning": "69420",
+    //       "Content-Type": "application/json",
+    //     }),
+    //     body: JSON.stringify(templateData),
+    //   });
+    //   if (!response.ok) {
+    //     alert(
+    //       "Servidor da reserva retornado com erro, por favor entre em contato com o suporte +5583991409999"
+    //     );
+    //   } else {
+    //     alert(
+    //       "Reserva feita com sucesso! Agora só aguardar o gestor entrar em contato :)"
+    //     );
+    //   }
+    // } catch (err) {
+    //   alert(
+    //     "Erro ao enviar a reserva, entre em contato com o suporte +5583991409999"
+    //   );
+    // }
 
     const message = `*RESERVA KROISSANT*\n\n*Nome Completo*: ${formData.name.toUpperCase()}\n*Numero WhatsApp*: ${formData.phone.toUpperCase()}\n\n*Data Reserva*: ${formData.date.toUpperCase()}\n*Hora Chegada*: ${formData.time.toUpperCase()}\n*Numero de Pessoas*: ${
       formData.numberOfPeople
@@ -238,10 +238,11 @@ const Reserva: React.FC = () => {
 
     const whatsappUrl = `https://wa.me/5583991409999?text=${encodeURIComponent(
       message
-    )}`; /* 
+    )}`;
+
     window.open(whatsappUrl, "_blank");
 
-    window.location.reload(); */
+    window.location.reload();
   };
 
   return (
@@ -431,10 +432,10 @@ const Reserva: React.FC = () => {
           Enviar Reserva
         </Button>
         <Typography variant="body1" gutterBottom marginTop={"10px"}>
-          Ao clicar em 'ENVIAR RESERVA', a reserva será enviado ao gestor de
-          reservas para concluir a reserva. *Caso não for retornado dentro de 3
-          horas ou se tiver dúvidas, pode contar com ele via whatsapp
-          8399149999.*
+          Ao clicar em 'ENVIAR RESERVA', uma mensagem de reserva será gerada,
+          por favor envie ao gestor de reservas no WhatsApp direcionado. *Caso
+          não for retornado dentro de 3 horas ou se tiver dúvidas, pode contar
+          com ele via whatsapp 8399149999.*
         </Typography>
       </Box>
     </CenteredBox>
